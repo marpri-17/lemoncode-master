@@ -1,0 +1,106 @@
+/* COLORS */
+$color-black: #0a0a0a;
+$base-color-primary: khaki;
+$base-color-secondary: ghostwhite;
+$base-color-tertiary: #3554c7;
+
+@mixin createDarkenScale($color, $amount) {
+  background-color: darken($color, $amount);
+}
+
+@mixin createLightenScale($color, $amount) {
+  background-color: lighten($color, $amount);
+}
+
+div.container-primary {
+  display: flex;
+  justify-content: space-evenly;
+  .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+    margin: 5px;
+    text-align: center;
+    border: 1px solid $color-black;
+    box-shadow: 1px 2px $color-black;
+  }
+
+  .base-color {
+    background-color: $base-color-primary;
+  }
+
+  $i: 1;
+  @for $i from 1 through 4 {
+    div.darken-#{$i} {
+      @include createDarkenScale($base-color-primary, 4);
+    }
+
+    div.lighten-#{$i} {
+      @include createLightenScale($base-color-primary, 4);
+    }
+  }
+}
+
+div.container-secondary {
+  display: flex;
+  justify-content: space-evenly;
+  .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+    margin: 5px;
+    text-align: center;
+    border: 1px solid $color-black;
+    box-shadow: 1px 2px $color-black;
+  }
+
+  .base-color {
+    background-color: $base-color-secondary;
+  }
+
+  $i: 1;
+  @for $i from 1 through 4 {
+    div.darken-#{$i} {
+      @include createDarkenScale($base-color-secondary, 4);
+    }
+
+    div.lighten-#{$i} {
+      @include createLightenScale($base-color-secondary, 4);
+    }
+  }
+}
+
+div.container-tertiary {
+  display: flex;
+  justify-content: space-evenly;
+  .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+    margin: 5px;
+    text-align: center;
+    border: 1px solid $color-black;
+    box-shadow: 1px 2px $color-black;
+  }
+
+  .base-color {
+    background-color: $base-color-tertiary;
+  }
+
+  $i: 1;
+  @for $i from 1 through 4 {
+    div.darken-#{$i} {
+      @include createDarkenScale($base-color-tertiary, 4);
+    }
+
+    div.lighten-#{$i} {
+      @include createLightenScale($base-color-tertiary, 4);
+    }
+  }
+}
