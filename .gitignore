@@ -1,2 +1,5 @@
-
-layout/colors_palette/.parcel-cache/0315d36a27db4833.txt
+# Parcel related files
+layout/colors_palette/dist/
+layout/colors_palette/.parcel-cache/
+layout/colors_palette/node_modules
+layout/colors_palette/package-lock.json
