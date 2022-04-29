@@ -1,0 +1,117 @@
+@use "../colors_palette/style.scss" as palette;
+
+/* CHANGE THOSE LINES COMMENT FOR CHANGE THEME */
+@use "./theme_red.scss" as theme;
+// @use "./theme_blue.scss" as theme;
+
+@mixin getThemedBackgroundColor($darkbg: false) {
+  @if $darkbg {
+    background-color: theme.$background-color;
+  } @else {
+    background-color: #ffffff;
+  }
+}
+// Common for all themes
+$font-base-color: palette.$color-black;
+
+@mixin themedFonts($darkbg) {
+  .font-featured {
+    font-size: theme.$font-title-size;
+    font-weight: theme.$font-title-weight;
+    @include palette.createDarkenScale(
+      color,
+      theme.$theme-color,
+      theme.$font-darken-amount
+    );
+  }
+
+  .font-standard {
+    font-size: theme.$font-base-size;
+    letter-spacing: -1px;
+    @if $darkbg {
+      color: theme.$background-contrast-color;
+    }
+  }
+
+  .font-subtitle {
+    font-size: theme.$font-subtitle-size;
+    font-style: italic;
+    font-weight: 100;
+    letter-spacing: 0.7px;
+    @include palette.createLightenScale(
+      color,
+      theme.$theme-color,
+      theme.$font-lighten-amount
+    );
+  }
+}
+
+@mixin themedElements($darkbg) {
+  .base {
+    background-color: theme.$theme-color;
+    color: theme.$font-contrast-color;
+  }
+
+  .important {
+    @include palette.createDarkenScale(
+      background-color,
+      theme.$theme-color,
+      theme.$area-color-oscilation-amount
+    );
+    @include palette.createLightenScale(
+      color,
+      theme.$theme-color,
+      theme.$area-color-oscilation-amount
+    );
+  }
+
+  .warning {
+    @include palette.createLightenScale(
+      background-color,
+      theme.$theme-color,
+      theme.$area-color-oscilation-amount
+    );
+    @include palette.createDarkenScale(
+      color,
+      theme.$theme-color,
+      theme.$area-color-oscilation-amount
+    );
+  }
+
+  .box {
+    box-shadow: theme.$box-shadow;
+    @if $darkbg {
+      color: inherit;
+      background-color: theme.$background-contrast-color;
+    }
+  }
+}
+
+html {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  font-family: theme.$font-family;
+  @include getThemedBackgroundColor(theme.$darkbg);
+}
+
+.demo {
+  .container {
+    .item {
+      width: 250px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: {
+        radius: 5px;
+        style: solid;
+        width: 1px;
+      }
+    }
+
+    @include themedElements(theme.$darkbg);
+  }
+
+  @include themedFonts(theme.$darkbg);
+}

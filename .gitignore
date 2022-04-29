@@ -3,3 +3,8 @@ layout/colors_palette/dist/
 layout/colors_palette/.parcel-cache/
 layout/colors_palette/node_modules
 layout/colors_palette/package-lock.json
+
+layout/themes_demo/dist/
+layout/themes_demo/.parcel-cache/
+layout/themes_demo/node_modules
+layout/themes_demo/package-lock.json

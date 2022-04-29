@@ -4,12 +4,12 @@ $base-color-primary: khaki;
 $base-color-secondary: ghostwhite;
 $base-color-tertiary: #3554c7;
 
-@mixin createDarkenScale($color, $amount) {
-  background-color: darken($color, $amount);
+@mixin createDarkenScale($property,$color, $amount) {
+  #{$property}: darken($color, $amount);
 }
 
-@mixin createLightenScale($color, $amount) {
-  background-color: lighten($color, $amount);
+@mixin createLightenScale($property, $color, $amount) {
+  #{$property}: lighten($color, $amount);
 }
 
 div.container-primary {
@@ -34,11 +34,11 @@ div.container-primary {
   $i: 1;
   @for $i from 1 through 4 {
     div.darken-#{$i} {
-      @include createDarkenScale($base-color-primary, 4);
+      @include createDarkenScale(background-color,$base-color-primary, 4);
     }
 
     div.lighten-#{$i} {
-      @include createLightenScale($base-color-primary, 4);
+      @include createLightenScale(background-color,$base-color-primary, 4);
     }
   }
 }
@@ -65,11 +65,11 @@ div.container-secondary {
   $i: 1;
   @for $i from 1 through 4 {
     div.darken-#{$i} {
-      @include createDarkenScale($base-color-secondary, 4);
+      @include createDarkenScale(background-color,$base-color-secondary, 4);
     }
 
     div.lighten-#{$i} {
-      @include createLightenScale($base-color-secondary, 4);
+      @include createLightenScale(background-color,$base-color-secondary, 4);
     }
   }
 }
@@ -96,11 +96,11 @@ div.container-tertiary {
   $i: 1;
   @for $i from 1 through 4 {
     div.darken-#{$i} {
-      @include createDarkenScale($base-color-tertiary, 4);
+      @include createDarkenScale(background-color,$base-color-tertiary, 4);
     }
 
     div.lighten-#{$i} {
-      @include createLightenScale($base-color-tertiary, 4);
+      @include createLightenScale(background-color,$base-color-tertiary, 4);
     }
   }
 }

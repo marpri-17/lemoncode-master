@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;900&family=Poppins:ital,wght@0,100;0,200;1,400&display=swap');
+
+// Background changes
+$darkbg: true;
+$background-color: dimgrey;
+$background-contrast-color: #ffffff; 
+
+// Red theme variables
+$theme-color: lightblue;
+$font-contrast-color: mediumblue;
+
+// Colors degrees scale
+
+// Fonts
+$font-family: "Poppins", sans-serif;
+$font-base-size: 16px;
+$font-title-size: 20px;
+$font-title-weight: 900;
+$font-subtitle-size: 13px;
+$font-darken-amount: 2;
+$font-lighten-amount: 2;
+
+// Elements
+$box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.86);
+$area-color-oscilation-amount: 30;
