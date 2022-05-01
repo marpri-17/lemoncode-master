@@ -2,12 +2,19 @@ $break-l: 1920px;
 $break-m: 660px;
 
 @media screen and (max-width: $break-m) {
-  nav.nav-container {
-    width: $break-m - 1 ;
-    min-width: 0px;
-    flex-direction: column;
-    justify-content: initial;
-    align-items: start;
-    height: 100%;
+  nav{
+    &.nav-container {
+      width: 600px ;
+      min-width: 0px;
+      flex-direction: column;
+      justify-content: initial;
+      align-items: start;
+      height: 100%;
+    }
+
+    .nav-item {
+      min-height: 25%;
+    }
+
   }
 }
