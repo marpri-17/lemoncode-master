@@ -8,3 +8,8 @@ layout/themes_demo/dist/
 layout/themes_demo/.parcel-cache/
 layout/themes_demo/node_modules
 layout/themes_demo/package-lock.json
+
+layout/nav-bar/dist/
+layout/nav-bar/.parcel-cache/
+layout/nav-bar/node_modules
+layout/nav-bar/package-lock.json
