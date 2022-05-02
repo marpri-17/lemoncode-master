@@ -13,3 +13,8 @@ layout/nav-bar/dist/
 layout/nav-bar/.parcel-cache/
 layout/nav-bar/node_modules
 layout/nav-bar/package-lock.json
+
+layout/card_css/dist/
+layout/card_css/.parcel-cache/
+layout/card_css/node_modules
+layout/card_css/package-lock.json

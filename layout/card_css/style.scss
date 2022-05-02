@@ -1,0 +1,95 @@
+$font-family: "Nunito", sans-serif;
+$font-size-title: 24px;
+$font-weigth-title: 900; // rev
+$font-size-base: 18px;
+$font-weigth-base: 300;
+$font-size-featured: 20px;
+$font-weigth-featured: 400; // 600
+$font-color-highlight: mediumseagreen;
+$card-padding: 10px;
+
+body {
+  height: 100vh;
+  font-size: 16px;
+  font-family: $font-family;
+  margin-block: 0px;
+  margin-inline: 0px;
+  padding-inline: 0px;
+  padding-block: 0px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+// Layout
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 1fr 1fr 15%;
+  justify-items: stretch;
+
+  grid-template-areas:
+    "img img"
+    "cardBody cardBody"
+    "footerBtn footerBtn";
+
+  header {
+    grid-area: img;
+  }
+  aside {
+    grid-area: cardBody;
+  }
+  footer {
+    grid-area: footerBtn;
+  }
+}
+// styles
+.card {
+  border: 3px solid darkgrey;
+  border-radius: 10px;
+  min-width: calc(100vw / 2); // small resolutions display 2 cards per row
+  max-width: calc(100vw / 4); // big resolutions display 2 cards per row
+  background-color: white;
+
+  &-header {
+    background-image: url("./img/demo-card.jpg");
+    background-position: left bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &-body {
+    padding: 0px $card-padding $card-padding $card-padding;
+  }
+
+  &-footer {
+    display: flex;
+    padding: $card-padding;
+
+    .btn-moreinfo {
+      flex: 1;
+      cursor: pointer;
+      background-color: lighten($font-color-highlight, 2);
+      color: white;
+      border-radius: 7px;
+      border-style: solid;
+      border-width: 1px;
+    }
+  }
+  // fonts
+  .font-title {
+    font-size: $font-size-title;
+    font-weight: $font-weigth-title;
+  }
+  .font-base {
+    font-size: $font-size-base;
+    font-weight: $font-weigth-base;
+  }
+  .font-featured {
+    font-size: $font-size-featured;
+    font-weight: $font-weigth-featured;
+    &-highlight {
+      font-size: $font-size-featured - 1;
+      color: $font-color-highlight;
+    }
+  }
+}
