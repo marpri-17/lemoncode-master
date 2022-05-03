@@ -1,15 +1,17 @@
+// Vars
 $font-family: "Nunito", sans-serif;
 $font-size-title: 24px;
-$font-weigth-title: 900; // rev
+$font-weigth-title: 900;
 $font-size-base: 18px;
 $font-weigth-base: 300;
 $font-size-featured: 20px;
-$font-weigth-featured: 400; // 600
+$font-weigth-featured: 400;
 $font-color-highlight: mediumseagreen;
 $card-padding: 10px;
 
+// Reset
 body {
-  height: 100vh;
+  height: calc(100vh - 50px);
   font-size: 16px;
   font-family: $font-family;
   margin-block: 0px;
@@ -17,10 +19,12 @@ body {
   padding-inline: 0px;
   padding-block: 0px;
   background-color: whitesmoke;
+  padding-top: 50px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
 }
+
 // Layout
 .grid-container {
   display: inline-grid;
@@ -43,12 +47,13 @@ body {
     grid-area: footerBtn;
   }
 }
+
 // styles
 .card {
   border: 3px solid darkgrey;
   border-radius: 10px;
-  min-width: calc(100vw / 2); // small resolutions display 2 cards per row
-  max-width: calc(100vw / 4); // big resolutions display 2 cards per row
+  max-width: 90%;
+  max-width: 450px;
   background-color: white;
 
   &-header {
@@ -59,6 +64,17 @@ body {
   }
   &-body {
     padding: 0px $card-padding $card-padding $card-padding;
+    display: flex;
+    flex-direction: column;
+
+    & > p{
+      text-align: justify;
+    }
+
+    &-featured {
+      align-self: flex-end;
+
+    }
   }
 
   &-footer {
