@@ -1,0 +1,48 @@
+@use './variables.scss' as vars;
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: vars.$body-background-color;
+}
+
+ul,li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    .toolbar {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        background-color: vars.$toolbar-background-color;
+    }
+
+    .page-title {
+        background-color: vars.$lemon-color;
+    }
+}
+
+.page-container {
+    display: flex;
+    nav {
+        background-color: darkolivegreen;
+    }
+
+    main {
+        .list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: auto;
+        }
+    }
+}
+
+footer{
+    
+    background-color: lighten(vars.$lemon-color, 30%)
+}

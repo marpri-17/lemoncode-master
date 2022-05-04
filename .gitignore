@@ -18,3 +18,8 @@ layout/card_css/dist/
 layout/card_css/.parcel-cache/
 layout/card_css/node_modules
 layout/card_css/package-lock.json
+
+layout_extra/dist/
+layout_extra/.parcel-cache/
+layout_extra/node_modules
+layout_extra/package-lock.json

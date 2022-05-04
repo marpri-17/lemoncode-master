@@ -1,0 +1,16 @@
+{
+  "name": "layout_extra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx parcel ./index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.5.0",
+    "parcel": "^2.5.0"
+  }
+}
