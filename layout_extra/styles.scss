@@ -1,48 +1,166 @@
-@use './variables.scss' as vars;
+@use "./variables.scss" as vars;
 
-body {
-    margin: 0px;
-    padding: 0px;
-    background: vars.$body-background-color;
+html {
+  font-family: vars.$font-family;
 }
 
-ul,li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+body {
+  margin: 0px;
+  padding: 0px;
+  background: vars.$body-background-color;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: vars.$header-height-xl 1fr 30px;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    .toolbar {
-        flex: 1;
-        display: flex;
-        justify-content: space-between;
-        background-color: vars.$toolbar-background-color;
-    }
+  grid-column: 1 / -1;
 
-    .page-title {
-        background-color: vars.$lemon-color;
+  display: flex;
+  flex-direction: column;
+
+  .toolbar {
+    height: 30%;
+    padding: vars.$padding-window-top;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: vars.$toolbar-background-color;
+    padding-top: vars.$padding-window-top;
+    padding-left: vars.$padding-window-side;
+    padding-right: vars.$padding-window-side;
+    padding-bottom: vars.$padding-window-top;
+    @include vars.fontFooter();
+
+    input {
+      outline: none;
+      border: 2px solid lighten(vars.$lemon-color, 10);
+      border-radius: 3px;
+      padding: 5px;
+      font-family: vars.$font-family;
+      @include vars.fontFooter();
+      min-width: 15%;
+
+      &:focus-visible {
+        outline-offset: inherit;
+        outline-style: none;
+        border-color: vars.$lemon-color;
+      }
     }
+  }
+
+  .page-title {
+    height: 70%;
+    background-color: vars.$lemon-color;
+    padding-left: vars.$padding-window-side;
+    display: flex;
+    align-items: center;
+    @include vars.fontTitle(vars.$white, false);
+  }
 }
 
 .page-container {
-    display: flex;
-    nav {
-        background-color: darkolivegreen;
-    }
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: vars.$nav-width-xl 1fr;
+  grid-template-rows: 1fr;
+  nav {
+    background-color: darkolivegreen;
+    grid-column: 1 / 2;
 
-    main {
-        .list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: auto;
-        }
+    .menu-container {
+      width: vars.$nav-width-xl;
+      // Se puede ajustar al 0px al hacer scroll sin js ??
+      position: fixed;
+      .menu-title {
+        padding-left: vars.$padding-window-side + 5px;
+        @include vars.fontTitle(ghostwhite, false);
+      }
+
+      ul li {
+        flex: 1;
+        padding-top: vars.$padding-window-top;
+        padding-bottom: vars.$padding-window-bottom;
+        padding-left: vars.$padding-window-side;
+        cursor: pointer;
+        background-color: vars.$lemon-color-light;
+        font-size: 18px;
+      }
+
+      li:hover{
+        background-color: darken(vars.$lemon-color, 10%);
+        color: vars.$white;
+      }
     }
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    .list {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1rem;
+      padding: 1rem;
+      .card {
+        width: 20rem;
+        height: 18rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        border-radius: 8px;
+        background-color: vars.$white;
+        box-shadow: vars.$card-shadow-xl;
+        padding: 15px;
+        text-align: center;
+        transition: all linear 0.2s;
+        
+        & > img {
+          max-width: 90%;
+          max-height: 90%;
+          border-radius: 50%;
+        }
+        .member-name {
+          padding-top: 1.2rem;
+          @include vars.fontBody();
+        }
+
+        &:hover {
+          background-color: rgba(vars.$lemon-color-light, 1);
+          .member-name {
+            font-size: 18px;
+            font-weight: 700 ;
+          }
+        }
+      }
+    }
+  }
 }
 
-footer{
-    
-    background-color: lighten(vars.$lemon-color, 30%)
+footer {
+  grid-column: 1 / -1;
+  background-color: vars.$lemon-color-light;
+  display: flex;
+  align-items: center;
+  padding-left: vars.$padding-window-side;
+  @include vars.fontFooter();
+}
+
+// Responsive
+@media screen and(max-width: vars.$breakpoint-mobile) {
+  .card {
+      border: 2px solid red;
+  }
 }

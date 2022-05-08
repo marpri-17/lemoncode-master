@@ -1,21 +1,65 @@
-$white: white;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,900;1,300&family=Nunito:wght@300;400;600;700&display=swap');
 
+//layout
+$header-height-xl: 120px;
+$nav-width-xl: 200px;
+$card-shadow-xl: 2px 7px 13px -3px rgba(0,0,0,0.81);
+    // responsive
+    $breakpoint-mobile: 768px;
+
+// colors
+$white: white;
 $body-background-color: gainsboro; 
 $toolbar-background-color: $white;
 $lemon-color: yellowgreen;
+$lemon-color-light: lighten($lemon-color, 30%);
 
 // fonts
+$font-family: 'Lato', sans-serif;
 $title-font-size : 24px;
-$nav-title-font-size: 20px;
-$nav-items-font-size: 18px;
+$nav-title-font-size: 18px;
+$nav-items-font-size: 16px;
 $body-font-size: 16px;
+$footer-font-size: 14px; 
 
-$title-font-weigth: 600;
-$nav-title-font-weigth: 900px;
-$nav-items-font-weigth: 500;
-$body-font-weigth: 400px;
+$title-font-weigth: 900;
+$nav-title-font-weigth: 700;
+$nav-items-font-weigth-xl: 400;
+$body-font-weigth: 400;
+$footer-font-weigth: 300; 
 
 // responsive fonts
 $nav-items-font-size-sm: 20px;
-$nav-items-font-weigth-sm: 600;
+$nav-items-font-weigth-sm: 700;
+
+// white-spaces
+$padding-window-side: 10px;
+$padding-window-top: 5px;
+$padding-window-bottom: 10px;
+
+
+// Fonts
+@mixin fontFooter() {
+    font-size: $footer-font-size;
+    font-weight: $footer-font-weigth;
+}
+
+@mixin fontBody() {
+    font-size: $body-font-size;
+    font-weight: $body-font-weigth;
+}
+
+// Optional color option
+@mixin fontTitle($color: inherit, $nav) {
+    color: $color;
+    @if $nav {
+        font-size: $nav-title-font-size;
+        font-weight: $nav-title-font-weigth;
+    } @else{
+        font-size: $title-font-size;
+        font-weight: $title-font-weigth;
+    }
+}
+
+
 
