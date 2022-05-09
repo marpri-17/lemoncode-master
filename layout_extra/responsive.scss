@@ -1,0 +1,95 @@
+@use "./variables.scss" as vars;
+
+// Vars
+$breakpoint-mobile: 768px;
+
+@mixin headerMobile() {
+  @media screen and (max-width: $breakpoint-mobile) {
+    // Adjust main grid
+
+    header .toolbar {
+      display: none;
+    }
+
+    header .page-title {
+      height: 100%;
+    }
+  }
+}
+
+@mixin mainTemplateGridMobile() {
+  @media screen and (max-width: $breakpoint-mobile) {
+    body {
+      grid-template-rows: vars.$header-height-sm 1fr vars.$footer-height-sm;
+
+      .page-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 1fr;
+
+        nav {
+          grid-column: unset;
+          position: sticky;
+          top: 0px;
+          .menu-container {
+            position: initial;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .menu-title {
+              display: none;
+            }
+
+            ul {
+              flex: 1;
+              display: flex;
+              justify-content: space-between;
+              padding-left: vars.$padding-window-side;
+              padding-right: vars.$padding-window-side;
+              li {
+                padding: 0.3em;
+                flex: initial;
+                width: 20%;
+                text-align: center;
+                font-size: vars.$nav-items-font-size-sm;
+                font-weight: vars.$nav-items-font-weigth-sm;
+                text-transform: uppercase;
+                transition: all 0.1s linear;
+                &:hover {
+                  color: inherit;
+                  background-color: vars.$lemon-color-light;
+                }
+
+                &:active {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+        }
+
+        main {
+          grid-column: unset;
+        }
+      }
+    }
+  }
+}
+
+@mixin cardMobile() {
+  .page-container main .list .card {
+    border: 2px solid red;
+  }
+}
+
+@mixin footerMobile() {
+  @media screen and (max-width: $breakpoint-mobile) {
+    footer {
+      font-size: vars.$body-font-size;
+      font-weight: vars.$body-font-weigth;
+    }
+  }
+}

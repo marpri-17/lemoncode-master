@@ -1,4 +1,5 @@
 @use "./variables.scss" as vars;
+@use "./responsive.scss" as responsive;
 
 html {
   font-family: vars.$font-family;
@@ -71,15 +72,13 @@ header {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: vars.$nav-width-xl 1fr;
-  grid-template-rows: 1fr;
+
   nav {
     background-color: darkolivegreen;
     grid-column: 1 / 2;
+    position: fixed;
 
     .menu-container {
-      width: vars.$nav-width-xl;
-      // Se puede ajustar al 0px al hacer scroll sin js ??
-      position: fixed;
       .menu-title {
         padding-left: vars.$padding-window-side + 5px;
         @include vars.fontTitle(ghostwhite, false);
@@ -95,7 +94,7 @@ header {
         font-size: 18px;
       }
 
-      li:hover{
+      li:hover {
         background-color: darken(vars.$lemon-color, 10%);
         color: vars.$white;
       }
@@ -103,7 +102,8 @@ header {
   }
 
   main {
-    flex: 1;
+    // flex: 1;
+    grid-column: 2 / -1;
     display: flex;
     .list {
       flex: 1;
@@ -126,7 +126,7 @@ header {
         padding: 15px;
         text-align: center;
         transition: all linear 0.2s;
-        
+
         & > img {
           max-width: 90%;
           max-height: 90%;
@@ -141,7 +141,7 @@ header {
           background-color: rgba(vars.$lemon-color-light, 1);
           .member-name {
             font-size: 18px;
-            font-weight: 700 ;
+            font-weight: 700;
           }
         }
       }
@@ -159,8 +159,7 @@ footer {
 }
 
 // Responsive
-@media screen and(max-width: vars.$breakpoint-mobile) {
-  .card {
-      border: 2px solid red;
-  }
-}
+@include responsive.mainTemplateGridMobile();
+@include responsive.headerMobile();
+@include responsive.cardMobile();
+@include responsive.footerMobile();
