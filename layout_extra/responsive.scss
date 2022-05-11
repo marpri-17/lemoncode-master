@@ -54,8 +54,8 @@ $breakpoint-mobile: 768px;
                 flex: initial;
                 width: 20%;
                 text-align: center;
-                font-size: vars.$nav-items-font-size-sm;
-                font-weight: vars.$nav-items-font-weigth-sm;
+                font-size: vars.$font-size-sm;
+                font-weight: vars.$font-weigth-sm;
                 text-transform: uppercase;
                 transition: all 0.1s linear;
                 &:hover {
@@ -80,8 +80,35 @@ $breakpoint-mobile: 768px;
 }
 
 @mixin cardMobile() {
-  .page-container main .list .card {
-    border: 2px solid red;
+  @media screen and (max-width: $breakpoint-mobile) {
+    .page-container main .list {
+      flex-direction: column;
+      .card {
+        height: unset;
+        width: auto;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+  
+        & > img {
+          margin-left: 1rem;
+          margin-right: 2rem;
+        }
+        .member-name{
+          font-size: vars.$font-size-sm;
+          padding: 0px;
+        }
+  
+        &:hover{
+          background-color: vars.$white;
+          .member-name {
+            font-size: vars.$font-size-sm;
+              font-weight:inherit;
+          }
+        }
+  
+      }
+    }
   }
 }
 

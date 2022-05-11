@@ -76,9 +76,11 @@ header {
   nav {
     background-color: darkolivegreen;
     grid-column: 1 / 2;
-    position: fixed;
 
     .menu-container {
+      position: sticky;
+      top: 0px;
+      
       .menu-title {
         padding-left: vars.$padding-window-side + 5px;
         @include vars.fontTitle(ghostwhite, false);
