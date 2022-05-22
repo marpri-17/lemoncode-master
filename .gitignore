@@ -25,4 +25,6 @@ layout_extra/node_modules
 layout_extra/package-lock.json
 
 
-javascript/solutions/01-deliverables/node_modules/**
+javascript/01-deliverables/node_modules/**
+javascript/01-deliverables/package-lock.json
+javascript/01-deliverables/transpiled
