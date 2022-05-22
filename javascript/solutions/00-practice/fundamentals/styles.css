@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: yellowgreen;
+    height: 120px;
+
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    height: calc(100% - 120px);
+    grid-template-areas: " . . aside"
+                        " footer footer aside";
+}
+
+section {
+    background-color: green;
+    margin: 3px;
+
+}
+
+aside {
+    background-color: darkorange;
+    grid-area: menu;
+}
+
+footer{
+    grid-area: footer;
+    background-color: blue
+}

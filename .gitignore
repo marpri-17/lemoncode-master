@@ -23,3 +23,6 @@ layout_extra/dist/
 layout_extra/.parcel-cache/
 layout_extra/node_modules
 layout_extra/package-lock.json
+
+
+javascript/solutions/deliverables/node_modules/**
