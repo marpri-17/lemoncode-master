@@ -20,6 +20,10 @@ const test2 = [
         expertise: null,
       },
     ],
+    owner: {
+      name: "Pepa",
+      adress: "C/ Valencia 4"
+    }
   },
   {
     id: 2,
@@ -39,6 +43,10 @@ const test2 = [
         expertise: null,
       },
     ],
+    owner: {
+      name: "Rigoberta",
+      adress: "C/ Turín 2"
+    }
   },
 ];
 
@@ -60,7 +68,7 @@ const init = (array) => array.reduce((acc, item, index) => {
       acc.push(item)
     }
     return acc;
-  }, []);; 
+  }, []);
 
 // last (inmutable), tal que, dado un array como entrada devuelva el último elemento.
 const last = (array: any[]): any[] => {
