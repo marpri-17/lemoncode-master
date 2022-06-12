@@ -24,7 +24,8 @@ layout_extra/.parcel-cache/
 layout_extra/node_modules
 layout_extra/package-lock.json
 
-
 javascript/01-deliverables/node_modules/**
 javascript/01-deliverables/package-lock.json
 javascript/01-deliverables/transpiled
+
+bundling/basic/node_modules/**
