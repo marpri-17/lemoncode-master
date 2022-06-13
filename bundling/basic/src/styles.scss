@@ -1,0 +1,19 @@
+$text-color: teal;
+$padding-quote: 15px;
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  min-height: 100vh;
+}
+
+.my-title {
+  padding-left: $padding-quote;
+  color: $text-color;
+}
+
+#quote {
+  padding: $padding-quote;
+  display: flex;
+  flex-direction: column;
+}
