@@ -29,3 +29,4 @@ javascript/01-deliverables/package-lock.json
 javascript/01-deliverables/transpiled
 
 bundling/basic/node_modules/**
+bundling/basic/dist/**
