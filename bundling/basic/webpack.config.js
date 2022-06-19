@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, "./src"),
-    entry: ['./index.js'],
+    entry: ['./index.ts'],
+    resolve: {
+        extensions: ['.js', '.ts']
+    },
     output: {
         filename: "[name].[chunkhash].js",
         path: path.resolve(__dirname, 'dist'),
@@ -13,7 +16,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js/,
+                test: /\.ts/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
