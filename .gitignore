@@ -30,3 +30,14 @@ javascript/01-deliverables/transpiled
 
 bundling/basic/node_modules/**
 bundling/basic/dist/**
+bundling/advanced/node_modules/**
+bundling/advanced/dist/**
+
+frameworks/react/react_basic/node_modules/**
+frameworks/react/react_basic/dist/**
+frameworks/react/react_advanced/node_modules/**
+frameworks/react/react_advanced/dist/**
+frameworks/angular/node_modules/**
+frameworks/angular/dist/**
+frameworks/vue/node_modules/**
+frameworks/vue/dist/**
