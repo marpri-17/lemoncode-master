@@ -1,14 +1,24 @@
 console.log("************** DELIVERABLE 02 *********************");
-const concat = (...args: any[]) => {
-    const result = []
-    args.forEach(arg => result.push(...arg));
-    return result;
+console.log(
+  "%cCONCAT -> copy arrays into single one",
+  "color: blue; font-weight: bold"
+);
+
+const concat = (...args: any[]) =>
+  args.reduce((acc, array) => [...acc, ...array], []);
+
+console.log(concat(["Array", 1], ["Array", 2]));
+console.log(concat(["Hey", 1], ["Ho", 2], ["Let's go", 3]));
+
+const heroesArray = [
+  {
+    name: "Captain America",
+    properties: { isAlive: false, superpower: "Defense" },
+  },
+];
+const newHero = {
+  name: "Batman",
+  properties: { isAlive: true, superpower: "Strength" },
 };
 
-console.log(concat(["Hola"], ["que tal?"]));
-const object1 = {name: "cosa", properties: {isAlive: true, color: "green"}};
-const object2 = {name: "Batman", properties: {isAlive: true, color: "dark"}};
-const concatenated = concat([object1], [object2]);
-concatenated[0].name = "Superman"
-console.log(object1);
-console.log(concatenated)
+console.log(concat(heroesArray, [newHero]));
