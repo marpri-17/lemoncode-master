@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "@core/router/routes";
+import { AppLayout } from "@layouts/app.kayout";
 
 interface MemberEntity {
   id: string;
@@ -28,8 +29,7 @@ export const ListScene: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <h2>Hello from List page</h2>
+    <AppLayout>
       <div className="list-header-container">
         <form>
           <input
@@ -40,6 +40,7 @@ export const ListScene: React.FC = () => {
             onChange={(e) =>
               setListScene({ ...listScene, organization: e.target.value })
             }
+            onSubmit={(e) => e.preventDefault()}
           ></input>
         </form>
       </div>
@@ -56,6 +57,6 @@ export const ListScene: React.FC = () => {
         ))}
       </div>
       <Link to={routes.list}>Navigate to detail page</Link>
-    </>
+    </AppLayout>
   );
 };

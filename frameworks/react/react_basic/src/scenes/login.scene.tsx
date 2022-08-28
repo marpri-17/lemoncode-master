@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@core/router/routes";
+import { LoginLayout } from "@layouts/login.layout";
 
 interface LoginForm {
   username: string;
@@ -25,12 +26,13 @@ export const LoginScene: React.FC = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleNavigation}>
+    <LoginLayout>
+      <form className="login-form-container" onSubmit={handleNavigation}>
         <div>
           <div>
             <label>Username: </label>
             <input
+              className="login-input"
               value={loginForm.username}
               onChange={(e) =>
                 setLoginForm({ ...loginForm, username: e.target.value })
@@ -40,6 +42,7 @@ export const LoginScene: React.FC = () => {
           <div>
             <label>Password: </label>
             <input
+              className="login-input"
               type="password"
               value={loginForm.password}
               onChange={(e) =>
@@ -51,6 +54,6 @@ export const LoginScene: React.FC = () => {
 
         <button type="submit">Login</button>
       </form>
-    </>
+    </LoginLayout>
   );
 };
