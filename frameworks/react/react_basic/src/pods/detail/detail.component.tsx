@@ -1,5 +1,5 @@
-import { MemberViewModel } from "@pods/list/list.viewmodel";
 import React from "react";
+import { MemberViewModel } from "@pods/list/list.viewmodel";
 import { Link } from "react-router-dom";
 
 interface Props {

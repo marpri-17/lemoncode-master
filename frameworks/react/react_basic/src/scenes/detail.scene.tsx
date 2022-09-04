@@ -1,4 +1,4 @@
-import { AppLayout } from "@layouts/app.kayout";
+import { AppLayout } from "@layouts/app.layout";
 import { DetailContainer } from "@pods/detail/detail.container";
 import React from "react";
 

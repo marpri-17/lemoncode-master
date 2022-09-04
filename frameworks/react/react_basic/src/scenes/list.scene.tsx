@@ -1,5 +1,5 @@
 import React from "react";
-import { AppLayout } from "@layouts/app.kayout";
+import { AppLayout } from "@layouts/app.layout";
 import { LoginContainer } from "@pods/list";
 
 export const ListScene: React.FC = () => {

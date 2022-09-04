@@ -6,12 +6,11 @@ import { useParams } from "react-router-dom";
 import { DetailComponent } from "./detail.component";
 
 interface DetailState {
-  id: string;
   member: MemberViewModel;
 }
 
 export const DetailContainer: React.FC = () => {
-  const [detailState, setDetailState] = React.useState({
+  const [detailState, setDetailState] = React.useState<DetailState>({
     member: null,
   });
   const { member } = detailState;
