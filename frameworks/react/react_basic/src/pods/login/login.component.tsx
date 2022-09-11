@@ -1,14 +1,14 @@
 import React from "react";
-import { LoginForm } from "./login.container";
+import { LoginFormModel } from "./login.model";
 
 interface Props {
-  onLogin: (info: LoginForm) => void;
+  onLogin: (info: LoginFormModel) => void;
 }
 
 export const Login: React.FC<Props> = (props) => {
   const { onLogin } = props;
 
-  const [loginForm, setLoginForm] = React.useState<LoginForm>({
+  const [loginForm, setLoginForm] = React.useState<LoginFormModel>({
     username: "",
     password: "",
   });

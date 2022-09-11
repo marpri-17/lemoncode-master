@@ -1,5 +1,5 @@
 import { AppLayout } from "@layouts/app.layout";
-import { DetailContainer } from "@pods/detail/detail.container";
+import { DetailContainer } from "@pods/detail";
 import React from "react";
 
 export const DetailScene: React.FC = () => {
