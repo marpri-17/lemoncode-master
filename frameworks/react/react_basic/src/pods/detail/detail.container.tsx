@@ -1,6 +1,6 @@
 import { getMemberDetail } from "@core/apis/github.service";
-import { mapMemberApimodelToMemberViewmodel } from "@pods/list/list.mapper";
-import { MemberViewModel } from "@pods/list/list.viewmodel";
+import { mapMemberApimodelToMemberViewmodel } from "@pods/filtered-list/list/list.mapper";
+import { MemberViewModel } from "@pods/filtered-list/list/list.viewmodel";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { DetailComponent } from "./detail.component";
@@ -14,10 +14,10 @@ export const DetailContainer: React.FC = () => {
     member: null,
   });
   const { member } = detailState;
-  const { id } = useParams();
+  const { login } = useParams();
 
   React.useEffect(() => {
-    getMemberDetail(id)
+    getMemberDetail(login)
       .then((memberApimodel) =>
         mapMemberApimodelToMemberViewmodel(memberApimodel)
       )

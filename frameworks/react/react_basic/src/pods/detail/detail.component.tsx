@@ -1,6 +1,7 @@
 import React from "react";
-import { MemberViewModel } from "@pods/list/list.viewmodel";
+import { MemberViewModel } from "@pods/filtered-list/list/list.viewmodel";
 import { Link } from "react-router-dom";
+import { routes } from "@core/router/routes";
 
 interface Props {
   member: MemberViewModel;
@@ -15,7 +16,7 @@ export const DetailComponent: React.FC<Props> = (props) => {
       <img src={`${avatarUrl}`} />
       <span>{id}</span>
       <div>
-        <Link to="/list">Back to list page</Link>
+        <Link to={routes.list}>Back to list page</Link>
       </div>
     </div>
   );
