@@ -37,7 +37,8 @@ frameworks/react/react_basic/node_modules/**
 frameworks/react/react_basic/dist/**
 frameworks/react/react_advanced/node_modules/**
 frameworks/react/react_advanced/dist/**
-frameworks/angular/node_modules/**
-frameworks/angular/dist/**
+frameworks/angular/my-app/node_modules/**
+frameworks/angular/my-app/dist/**
+frameworks/angular/my-app/.vscode/**
 frameworks/vue/node_modules/**
 frameworks/vue/dist/**
