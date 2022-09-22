@@ -10,8 +10,8 @@ interface Item {
   role?: Lookup;
 }
 
-describe('common/helpers/filter.helpers specs', () => {
-  describe('filterByFields', () => {
+xdescribe('common/helpers/filter.helpers specs', () => {
+  xdescribe('filterByFields', () => {
     it('should return empty array when it feeds collection equals undefined', () => {
       // Arrange
       const collection: Item[] = undefined;
@@ -463,7 +463,7 @@ describe('common/helpers/filter.helpers specs', () => {
     });
   });
 
-  describe('filterByText', () => {
+  xdescribe('filterByText', () => {
     it('should return empty array when it feeds collection equals undefined', () => {
       // Arrange
       const collection: Item[] = undefined;
@@ -1058,7 +1058,7 @@ describe('common/helpers/filter.helpers specs', () => {
     });
   });
 
-  describe('upper case', () => {
+  xdescribe('upper case', () => {
     it('should return first item when it feeds collection with two items and filter with name equals "NAME 1" using filterByFields', () => {
       // Arrange
       const collection: Item[] = [
@@ -1096,7 +1096,7 @@ describe('common/helpers/filter.helpers specs', () => {
     });
   });
 
-  describe('ignore accents', () => {
+  xdescribe('ignore accents', () => {
     it('should return first item when it feeds collection with two items and filter with name equals "náme 1" using filterByFields', () => {
       // Arrange
       const collection: Item[] = [

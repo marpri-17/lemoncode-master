@@ -2,7 +2,7 @@ import { mapEmployeeFromApiToVm } from './employee.mappers';
 import * as apiModel from './api/employee.api-model';
 import * as viewModel from './employee.vm';
 
-describe('./pods/employee/employee.mappers', () => {
+xdescribe('./pods/employee/employee.mappers', () => {
   it('should return empty employee when feeding null value', () => {
     // Arrange
     const employee = null;
