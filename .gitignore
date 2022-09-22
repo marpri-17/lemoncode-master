@@ -42,3 +42,5 @@ frameworks/angular/my-app/dist/**
 frameworks/angular/my-app/.vscode/**
 frameworks/vue/node_modules/**
 frameworks/vue/dist/**
+
+testing/node_modules/**
