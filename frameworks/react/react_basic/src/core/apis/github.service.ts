@@ -8,7 +8,14 @@ export const getOrganizationMembersList = (
   organizationName: string
 ): Promise<MemberApimodel[]> => {
   return fetch(`https://api.github.com/orgs/${organizationName}/members`).then(
-    (response) => response.json()
+    (response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    } /* else {
+        throw new Error("Organization doesn't obtain results");
+        
+      } */
   );
 };
 

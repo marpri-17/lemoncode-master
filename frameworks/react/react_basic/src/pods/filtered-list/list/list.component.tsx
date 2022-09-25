@@ -5,14 +5,14 @@ import { mapMembersApimodelToMembersViewModel } from "./list.mapper";
 import { MemberViewModel } from "./list.viewmodel";
 import { useFilteredList } from "../useFilteredList.hooks";
 
-export const ListComponent: React.FC = () => {
-  const { members } = useFilteredList();
-  const [listItems, setListItems] = React.useState<MemberViewModel[]>([]);
+interface Props {
+  listItems: MemberViewModel[];
+}
 
+export const ListComponent: React.FC<Props> = ({ listItems }) => {
   React.useEffect(() => {
-    console.log("LIST COMPONENT ", members);
-    setListItems(mapMembersApimodelToMembersViewModel(members));
-  }, [members]);
+    console.log("LIST COMPONENT ", listItems);
+  }, [listItems]);
 
   return (
     <>

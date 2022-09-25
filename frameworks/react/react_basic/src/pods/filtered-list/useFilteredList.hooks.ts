@@ -3,16 +3,21 @@ import { MemberApimodel } from "@core/apis/github.apimodel";
 import { getOrganizationMembersList } from "@core/apis/github.service";
 
 export const useFilteredList = () => {
-  const [organizationName, setOrganizationName] =
-    React.useState<string>("lemoncode");
+  const [organizationName, setOrganizationName] = React.useState<string>("");
   const [members, setMembers] = React.useState<MemberApimodel[]>([]);
 
   React.useEffect(() => {
-    getOrganizationMembersList(organizationName).then((membersList) => {
-      console.log(membersList);
-      setMembers(membersList);
-    });
+    console.log(organizationName);
+    if (organizationName !== "") {
+      getOrganizationMembersList(organizationName).then((membersList) => {
+        console.log(membersList);
+        if (membersList) {
+          // Control de error ??
+          setMembers(membersList);
+        }
+      });
+    }
   }, [organizationName]);
 
-  return { organizationName, setOrganizationName, members };
+  return { setOrganizationName, members };
 };

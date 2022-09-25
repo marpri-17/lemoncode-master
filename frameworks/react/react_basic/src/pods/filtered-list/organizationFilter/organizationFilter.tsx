@@ -1,20 +1,29 @@
 import React from "react";
-import { useFilteredList } from "@pods/filtered-list/useFilteredList.hooks";
 import { useDebounce } from "use-debounce";
 
-export const OrganizationFilter: React.FC = () => {
-  const { organizationName, setOrganizationName } = useFilteredList();
+interface Props {
+  organizationName: string;
+  setOrganizationName: (filter: string) => void;
+}
+
+export const OrganizationFilter: React.FC<Props> = ({
+  organizationName,
+  setOrganizationName,
+}) => {
   const [filter, setFilter] = React.useState("");
   const [debouncedFilter] = useDebounce(filter, 1000);
 
   React.useEffect(() => {
-    setFilter(organizationName);
+    if (organizationName && organizationName.length) {
+      setFilter(organizationName);
+    }
   }, [organizationName]);
 
   // Use debounce here. State and useEffect to fetch
   React.useEffect(() => {
+    localStorage.setItem("filter", debouncedFilter);
     setOrganizationName(debouncedFilter);
-  }, [organizationName, debouncedFilter]);
+  }, [debouncedFilter]);
 
   return (
     <form className="list-header-container">
