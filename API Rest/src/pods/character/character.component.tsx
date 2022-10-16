@@ -22,9 +22,8 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Grid container spacing={2}>
-      <Typography variant="h4">{character.name}</Typography>
-
       <img src={character.picture} alt={character.name} />
+      <Typography variant="h4">{character.name}</Typography>
     </Grid>
   );
 };

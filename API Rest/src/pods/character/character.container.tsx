@@ -10,8 +10,8 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   const [character, setCharacter] = React.useState<Character>(
     createEmptyCharacter()
   );
-  const [cities, setCities] = React.useState<Lookup[]>([]);
-  const { id } = useParams();
+  // const [cities, setCities] = React.useState<Lookup[]>([]);
+  const { id } = useParams<{ id: string }>();
   const history = useHistory();
 
   /* const handleLoadCityCollection = async () => {
@@ -19,8 +19,14 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     setCities(apiCities);
   }; */
 
-  const handleLoadCharacter = () => {
-    const apiCharacter = api.getCharacter();
+  const handleLoadCharacter = async () => {
+    // FETCH
+    /* api.getCharacterAPIRest(id).then((character) => {
+      setCharacter(mapHotelFromApiToVm(character));
+    }); */
+
+    // AXIOS
+    const apiCharacter = await api.getCharacterAPIRestAxios(id);
     setCharacter(mapHotelFromApiToVm(apiCharacter));
   };
 
