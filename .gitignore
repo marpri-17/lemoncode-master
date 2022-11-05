@@ -46,3 +46,5 @@ frameworks/vue/dist/**
 testing/node_modules/**
 
 API Rest/node_modules/**
+
+API Rest - GraphQL/node_modules/**
