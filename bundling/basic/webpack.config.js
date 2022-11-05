@@ -48,6 +48,7 @@ module.exports = {
             scriptLoading: "blocking",
         })
     ],
+    devtool: "eval-source-map",
     devServer: {
         hot: true,
         static: {

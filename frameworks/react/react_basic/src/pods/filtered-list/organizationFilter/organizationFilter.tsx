@@ -21,22 +21,24 @@ export const OrganizationFilter: React.FC<Props> = ({
 
   // Use debounce here. State and useEffect to fetch
   React.useEffect(() => {
-    localStorage.setItem("filter", debouncedFilter);
-    setOrganizationName(debouncedFilter);
+    if (debouncedFilter && debouncedFilter.length) {
+      localStorage.setItem("filter", debouncedFilter);
+      setOrganizationName(debouncedFilter);
+    }
   }, [debouncedFilter]);
 
   return (
-    <form className="list-header-container">
+    <form
+      className="list-header-container"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <input
         type="text"
         className="list-header-input"
         placeholder="Search organization"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
-        onSubmit={(e) => e.preventDefault()}
       ></input>
-      <span>{filter}</span>
-      <span>{debouncedFilter}</span>
     </form>
   );
 };

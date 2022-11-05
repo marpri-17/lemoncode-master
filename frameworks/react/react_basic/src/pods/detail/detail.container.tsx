@@ -19,12 +19,14 @@ export const DetailContainer: React.FC = () => {
   const { login } = useParams();
 
   React.useEffect(() => {
-    getMemberDetail(login)
-      .then((memberApimodel) =>
-        mapMemberApimodelToMemberViewmodel(memberApimodel)
-      )
-      .then((member) => setDetailState({ ...detailState, ...{ member } }));
-  });
+    if (login) {
+      getMemberDetail(login)
+        .then((memberApimodel) =>
+          mapMemberApimodelToMemberViewmodel(memberApimodel)
+        )
+        .then((member) => setDetailState({ ...detailState, ...{ member } }));
+    }
+  }, [login]);
 
   return <>{member ? <DetailComponent member={member} /> : "Loading..."};</>;
 };
