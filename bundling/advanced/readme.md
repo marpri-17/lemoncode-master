@@ -5,6 +5,8 @@
 - Estilos manejados mediante css loader y sass gestionado por `sass` y `sass-loader`. `style-loader` se encarga de insertar el css/scss importado en el archivo principal de javascript
 - `html-webpack-plugin` manejará la generación de los archivos html, mientras que `html-loader` se encarga del renombrado correcto de las importaciones de las tags, sustituyendo los nombres de cada archivo por el autogenerado, incluyendo hash, y de actualizar la ruta de acceso, en caso de ser necesario.
 - Utilizamos `rimraf` para el borrado profundo de la copia de la carpeta `dist` en el que se genera el bundle de producción cada vez que se ejecuta el comando `npm run build`
+- Support reacts
+- Install webpack merge for handle differents configuration files for each enviroment
 
 ```json
 "devDependencies": {

@@ -5,5 +5,13 @@ export function getQuote(): Promise<ServerQuote> {
     (resp) => resp.json()
   ); */
 
-  return fetch("./mocks/quotesMock.json").then((resp) => resp.json());
+  return fetch("./mocks/quotesMock.json")
+    .then((resp) => {
+      console.log(resp);
+      return resp.json();
+    })
+    .catch((error) => {
+      console.log(error);
+      throw new Error("Error fetching data");
+    });
 }
