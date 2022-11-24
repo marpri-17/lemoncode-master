@@ -5,7 +5,7 @@ export function TitleComponent() {
   return (
     <div className="container">
       <img src={image} alt="Logo Lemoncode" />
-      <h1 className="my-title">Hola mundo</h1>
+      <h1 className="my-title">{process.env.GREETING}</h1>
     </div>
   );
 }

@@ -1,15 +1,21 @@
 const { merge } = require('webpack-merge');
-const base = require('./base');
+const commons = require('./base');
 const path = require("path");
+const DotEnv = require("dotenv-webpack")
 
 
-module.exports = merge(base, {
+module.exports = merge(commons, {
     mode: 'development',
     devtool: "eval-source-map",
     devServer: {
         hot: true,
         static: {
-            directory: path.join(__dirname, "src"),
+            directory: path.join(path.resolve(__dirname, "../../"), "src"),
         },
-    }
+    },
+    plugins: [
+        new DotEnv({
+            path: path.join(path.resolve(__dirname, "../"), 'env/dev.env'),
+        })
+    ]
 })

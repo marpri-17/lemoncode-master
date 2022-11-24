@@ -8,6 +8,7 @@ import { createRoot } from "react-dom/client";
 
 import { getQuote } from "./services/quoteService";
 import { ServerQuote } from "./models/quote.models";
+import { DemoScene } from "./scenes/demo-scene/demo.scene";
 
 const sum = (a: number, b: number): number => a + b;
 getQuote().then((quote) => printQuote(quote));
@@ -33,7 +34,10 @@ const root = createRoot(rootElement);
 
 root.render(
   <>
-    <TitleComponent />
-    <QuoteComponent />
+    <StrictMode>
+      <TitleComponent />
+      <QuoteComponent />
+      <DemoScene />
+    </StrictMode>
   </>
 );
