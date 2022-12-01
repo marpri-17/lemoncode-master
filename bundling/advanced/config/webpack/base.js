@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
     context: path.join(path.resolve(__dirname, "../../"), "src"),
     entry: [path.join(path.resolve(__dirname, "../../"), "src/index.tsx")],
@@ -12,6 +11,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.ts', '.tsx'],
+        alias: {
+            components: path.join(path.resolve(__dirname, "../../"), "src/components"),
+            pods: path.join(path.resolve(__dirname, "../../"), "src/pods")
+        }
     },
 
     module: {

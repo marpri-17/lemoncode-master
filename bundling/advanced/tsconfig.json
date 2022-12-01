@@ -11,7 +11,12 @@
     "noLib": false,
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "components": ["./components/*"],
+      "pods": ["./pods/*"]
+    }
   },
   "include": ["src/**/*", "./index.d.ts"],
   "exclude": ["node_modules"]
