@@ -1,22 +1,18 @@
 import "./styles.scss";
 import React from "react";
 import { StrictMode } from "react";
-
-import { TitleComponent } from "./titleComponent";
-import QuoteComponent from "./quoteComponent";
 import { createRoot } from "react-dom/client";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import { getQuote } from "./services/quoteService";
-import { ServerQuote } from "./models/quote.models";
-import { AppScene } from "./scenes/app.scene";
-import { AppLayuot } from "./layouts/app.layout";
-
+import { RouterProvider } from "react-router-dom";
+import { router } from "core/router/app.router.component";
+/* 
 const sum = (a: number, b: number): number => a + b;
-getQuote().then((quote) => printQuote(quote));
+getQuote().then((quote) => printQuote(quote)); */
 
-console.log(`Resultado es ${sum(2, 3)} !`);
+// console.log(`Resultado es ${sum(2, 3)} !`);
 
-function printQuote(quote: ServerQuote) {
+/* function printQuote(quote: ServerQuote) {
   const [ramdonQuote] = quote.quotes;
   const quoteElement = document.querySelector("#quote");
   const newParagraph = document.createElement("p");
@@ -28,7 +24,7 @@ function printQuote(quote: ServerQuote) {
   quoteElement.appendChild(newAuthor);
 }
 
-const a: number = 1;
+const a: number = 1; */
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -36,10 +32,8 @@ const root = createRoot(rootElement);
 root.render(
   <>
     <StrictMode>
-      {/* <TitleComponent />
-      <QuoteComponent />
-      <AppScene /> */}
-      <AppLayuot />
+      <CssBaseline />
+      <RouterProvider router={router} />
     </StrictMode>
   </>
 );

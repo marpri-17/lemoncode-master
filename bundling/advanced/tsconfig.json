@@ -15,7 +15,10 @@
     "baseUrl": "./src/",
     "paths": {
       "components": ["./components/*"],
-      "pods": ["./pods/*"]
+      "pods": ["./pods/*"],
+      "core": ["./core/*"],
+      "layouts": ["./layouts/*"],
+      "scenes": ["./scenes/*"]
     }
   },
   "include": ["src/**/*", "./index.d.ts"],

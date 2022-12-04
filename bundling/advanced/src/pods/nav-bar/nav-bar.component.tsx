@@ -8,6 +8,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { AccountCircle } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -16,6 +17,7 @@ export const AppNavBar: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const pages = ["Home", "About"];
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     setAuth(false);
@@ -29,8 +31,9 @@ export const AppNavBar: React.FC = () => {
     setAnchorEl(null);
   };
 
-  const handleClickMenuItem = (page: string) => {
-    console.log(page);
+  const handleClickMenuItem = (route: string) => {
+    navigate(route);
+    console.log("navigate");
   };
 
   return (
@@ -46,11 +49,18 @@ export const AppNavBar: React.FC = () => {
           <MenuIcon />
         </IconButton>
         <Box sx={{ display: "flex", flexGrow: 1, flexDirection: "row" }}>
-          {pages.map((page) => (
-            <MenuItem key={page} onClick={() => handleClickMenuItem(page)}>
-              <Typography textAlign="center">{page}</Typography>
-            </MenuItem>
-          ))}
+          <MenuItem
+            key={pages[0]}
+            onClick={() => handleClickMenuItem("welcome")}
+          >
+            <Typography textAlign="center">{pages[0]}</Typography>
+          </MenuItem>
+          <MenuItem key={pages[1]} onClick={() => handleClickMenuItem("about")}>
+            <Typography textAlign="center">{pages[1]}</Typography>
+          </MenuItem>
+          <MenuItem key="error" onClick={() => handleClickMenuItem("test")}>
+            <Typography textAlign="center">Error</Typography>
+          </MenuItem>
         </Box>
         {auth && (
           <div>
