@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p -l typecheck:dev start:dev",
+    "start": "run-p -l typecheck:dev serve:dev",
+    "start:prod": "run-p -l typecheck:dev serve:production",
     "build": "rimraf ./dist && webpack --config ./config/webpack/dev.js",
-    "clean": "rimraf ./dist",
     "build:prod": "rimraf ./dist && webpack --config ./config/webpack/prod.js",
+    "serve:dev": " webpack serve --config ./config/webpack/dev.js",
+    "serve:production": " webpack serve --config ./config/webpack/prod.js",
     "typecheck": "tsc --noEmit",
     "typecheck:dev": "npm run typecheck -- --watch",
-    "start:dev": " webpack serve --config ./config/webpack/dev.js"
+    "clean": "rimraf ./dist"
   },
   "keywords": [],
   "author": "",

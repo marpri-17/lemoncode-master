@@ -15,9 +15,11 @@
     "baseUrl": "./src/",
     "paths": {
       "components": ["./components/*"],
-      "pods": ["./pods/*"],
+      "assets": ["./assets/*"],
       "core": ["./core/*"],
       "layouts": ["./layouts/*"],
+      "models": ["./models/*"],
+      "pods": ["./pods/*"],
       "scenes": ["./scenes/*"]
     }
   },

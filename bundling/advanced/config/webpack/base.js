@@ -13,9 +13,11 @@ module.exports = {
         extensions: ['.js', '.ts', '.tsx'],
         alias: {
             components: path.join(path.resolve(__dirname, "../../"), "src/components"),
-            pods: path.join(path.resolve(__dirname, "../../"), "src/pods"),
+            assets: path.join(path.resolve(__dirname, "../../"), "src/assets"),
             core: path.join(path.resolve(__dirname, "../../"), "src/core"),
             layouts: path.join(path.resolve(__dirname, "../../"), "src/layouts"),
+            models: path.join(path.resolve(__dirname, "../../"), "src/models"),
+            pods: path.join(path.resolve(__dirname, "../../"), "src/pods"),
             scenes: path.join(path.resolve(__dirname, "../../"), "src/scenes")
         }
     },

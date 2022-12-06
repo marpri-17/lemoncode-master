@@ -33,7 +33,6 @@ export const AppNavBar: React.FC = () => {
 
   const handleClickMenuItem = (route: string) => {
     navigate(route);
-    console.log("navigate");
   };
 
   return (

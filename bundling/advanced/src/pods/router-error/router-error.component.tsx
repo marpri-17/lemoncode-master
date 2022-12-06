@@ -11,7 +11,10 @@ export default function RouterError() {
       <Typography variant="h1">Oops!</Typography>
       <Typography>Sorry, an unexpected error has occurred.</Typography>
       <Typography>
-        <i>{error["statusText"] || error["message"]}</i>
+        {error && <i>{error["statusText"] || error["message"]}</i>}
+      </Typography>
+      <Typography variant="caption">
+        This is a demo page for display error view
       </Typography>
     </Box>
   );

@@ -3,25 +3,22 @@ import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "layouts/app.layout";
 import { AppScene } from "scenes/app.scene";
 import { AboutScene } from "scenes/about.scene";
-import { RouterErrorLayout as RouterError } from "layouts/error.layout";
-import { redirect } from "react-router-dom";
+import { RouterErrorLayout } from "layouts/error.layout";
 
+// Last version for react router dom (6.4.4)
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <RouterError />,
-    // loader: rootLoader,
+    errorElement: <RouterErrorLayout />,
     children: [
       {
         path: "welcome",
         element: <AppScene />,
-        errorElement: <RouterError />,
       },
       {
         path: "about",
         element: <AboutScene />,
-        errorElement: <RouterError />,
       },
     ],
   },
