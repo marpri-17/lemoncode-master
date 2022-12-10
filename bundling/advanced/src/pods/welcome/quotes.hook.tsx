@@ -1,4 +1,4 @@
-import { ServerQuote } from "models/quote.models";
+import { ServerQuote } from "models";
 // import quotesMock from "./mocks/quotes.json";
 
 export function getQuote(): Promise<ServerQuote> {

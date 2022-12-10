@@ -4,7 +4,7 @@ import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import CssBaseline from "@mui/material/CssBaseline";
-import { RouterRoot } from "core/router/app.router.component";
+import { RouterRoot } from "core/router";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

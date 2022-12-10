@@ -37,7 +37,7 @@ export function TitleComponent() {
       <Typography className="my-title" align="center">
         {process.env.GREETING}
       </Typography>
-      <Typography variant="h6" align="justify">
+      <Typography variant="h6">
         Proyecto base para construir una aplicación web utilizando React y React
         Material (MUI), con el apoyo de Webpack para la gestión de dependencias
         y el soporte al entorno de desarrollo.
@@ -50,7 +50,7 @@ export function TitleComponent() {
         variant="elevation"
         elevation={3}
         sx={{
-          padding: "15px 30px",
+          padding: "15px 3.1%",
         }}
       >
         <Typography variant="body1" align="justify">

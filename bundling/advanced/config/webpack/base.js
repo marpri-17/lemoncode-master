@@ -15,7 +15,7 @@ module.exports = {
             components: path.join(path.resolve(__dirname, "../../"), "src/components"),
             assets: path.join(path.resolve(__dirname, "../../"), "src/assets"),
             core: path.join(path.resolve(__dirname, "../../"), "src/core"),
-            layouts: path.join(path.resolve(__dirname, "../../"), "src/layouts"),
+            "layouts": path.join(path.resolve(__dirname, "../../"), "src/layouts"),
             models: path.join(path.resolve(__dirname, "../../"), "src/models"),
             pods: path.join(path.resolve(__dirname, "../../"), "src/pods"),
             scenes: path.join(path.resolve(__dirname, "../../"), "src/scenes")
@@ -46,6 +46,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/i,
+                exclude: /node_modules/,
                 type: 'asset/resource',
                 generator: {
                     filename: 'content/[name].[ext]'
@@ -58,6 +59,7 @@ module.exports = {
             {
                 test: /\.json/,
                 type: 'asset',
+                exclude: /node_modules/,
                 generator: {
                     filename: 'mocks/[name].[ext]'
                 }

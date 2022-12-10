@@ -1,10 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { routes } from "./routes";
-import { AppLayout } from "layouts/app.layout";
-import { AppScene } from "scenes/app.scene";
-import { AboutScene } from "scenes/about.scene";
-import { ErrorScene } from "scenes/error.scene";
+import { AppLayout } from "layouts";
+import { AppScene, AboutScene, ErrorScene } from "scenes";
 
 export const RouterRoot = () => {
   return (

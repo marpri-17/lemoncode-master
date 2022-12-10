@@ -1,10 +1,6 @@
 /* Use components styles sheets here */
 @use "./core/scss/variables.scss" as vars;
 
-code {
-  background-color: #eceff1;
-}
-
 body,
 #root {
   min-height: 100vh;
@@ -12,6 +8,10 @@ body,
   #root > .MuiBox-root {
     min-height: 100vh;
   }
+}
+
+code {
+  background-color: #eceff1;
 }
 
 #quote {

@@ -14,13 +14,13 @@
     "esModuleInterop": true,
     "baseUrl": "./src/",
     "paths": {
-      "components": ["./components/*"],
-      "assets": ["./assets/*"],
-      "core": ["./core/*"],
-      "layouts": ["./layouts/*"],
-      "models": ["./models/*"],
-      "pods": ["./pods/*"],
-      "scenes": ["./scenes/*"]
+      "@components": ["./components/*"],
+      "@assets": ["./assets/*"],
+      "@core": ["./core/*"],
+      "@layouts": ["./layouts/*"],
+      "@models": ["./models/*"],
+      "@pods": ["./pods/*"],
+      "@scenes": ["./scenes/*"]
     }
   },
   "include": ["src/**/*", "./index.d.ts"],
