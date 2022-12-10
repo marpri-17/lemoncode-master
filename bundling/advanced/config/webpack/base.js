@@ -52,6 +52,10 @@ module.exports = {
                 }
             },
             {
+                test: /\.svg/,
+                type: 'asset/inline'
+            },
+            {
                 test: /\.json/,
                 type: 'asset',
                 generator: {

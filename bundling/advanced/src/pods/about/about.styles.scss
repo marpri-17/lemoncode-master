@@ -1,0 +1,14 @@
+@use "core/scss/variables.scss" as vars;
+
+#about {
+  img {
+    max-width: 50%;
+    height: 50%;
+  }
+
+  .about {
+    &-title {
+      color: vars.$text-color;
+    }
+  }
+}

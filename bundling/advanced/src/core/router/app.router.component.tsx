@@ -1,25 +1,21 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { routes } from "./routes";
 import { AppLayout } from "layouts/app.layout";
 import { AppScene } from "scenes/app.scene";
 import { AboutScene } from "scenes/about.scene";
-import { RouterErrorLayout } from "layouts/error.layout";
+import { ErrorScene } from "scenes/error.scene";
 
-// Last version for react router dom (6.4.4)
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <AppLayout />,
-    errorElement: <RouterErrorLayout />,
-    children: [
-      {
-        path: "welcome",
-        element: <AppScene />,
-      },
-      {
-        path: "about",
-        element: <AboutScene />,
-      },
-    ],
-  },
-]);
+export const RouterRoot = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={routes.root} element={<AppLayout />}>
+          <Route index element={<AppScene />} />
+          <Route path={routes.about} element={<AboutScene />} />
+          <Route path="*" element={<ErrorScene />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};

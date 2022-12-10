@@ -1,21 +1,19 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { useRouteError } from "react-router-dom";
+import { Typography, Link as MaterialLink } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import { CenterColumnLayout } from "layouts/centered-layout";
 
 export default function RouterError() {
-  const error = useRouteError();
-  console.error(error);
-
   return (
-    <Box id="error-page">
+    <CenterColumnLayout sectionId="error-page">
       <Typography variant="h1">Oops!</Typography>
       <Typography>Sorry, an unexpected error has occurred.</Typography>
-      <Typography>
-        {error && <i>{error["statusText"] || error["message"]}</i>}
-      </Typography>
+      <MaterialLink component={RouterLink} to="/" underline="hover">
+        Go to the home page
+      </MaterialLink>
       <Typography variant="caption">
         This is a demo page for display error view
       </Typography>
-    </Box>
+    </CenterColumnLayout>
   );
 }

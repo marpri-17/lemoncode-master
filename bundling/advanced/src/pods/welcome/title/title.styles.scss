@@ -1,0 +1,14 @@
+@use "core/scss/variables.scss" as vars;
+
+#title {
+  .my-title {
+    font-family: "Nunito", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: vars.$text-color;
+  }
+
+  img {
+    max-width: 25%;
+  }
+}

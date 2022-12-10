@@ -48,17 +48,14 @@ export const AppNavBar: React.FC = () => {
           <MenuIcon />
         </IconButton>
         <Box sx={{ display: "flex", flexGrow: 1, flexDirection: "row" }}>
-          <MenuItem
-            key={pages[0]}
-            onClick={() => handleClickMenuItem("welcome")}
-          >
+          <MenuItem key={pages[0]} onClick={() => handleClickMenuItem("/")}>
             <Typography textAlign="center">{pages[0]}</Typography>
           </MenuItem>
           <MenuItem key={pages[1]} onClick={() => handleClickMenuItem("about")}>
             <Typography textAlign="center">{pages[1]}</Typography>
           </MenuItem>
-          <MenuItem key="error" onClick={() => handleClickMenuItem("test")}>
-            <Typography textAlign="center">Error</Typography>
+          <MenuItem key="error" onClick={() => handleClickMenuItem("notfound")}>
+            <Typography textAlign="center">Router Error Demo</Typography>
           </MenuItem>
         </Box>
         {auth && (
