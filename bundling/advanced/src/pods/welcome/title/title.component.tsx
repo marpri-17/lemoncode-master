@@ -3,14 +3,24 @@ import reactImg from "assets/react_logo.png";
 import webpackImg from "assets/webpack_icon.png";
 import materialImg from "assets/material.png";
 import { Box, Paper, Typography } from "@mui/material";
-import { CenterColumnLayout } from "layouts/centered-layout";
 import "./title.styles.scss";
 
 export function TitleComponent() {
   return (
-    <CenterColumnLayout sectionId="title">
+    <Box
+      id="title"
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "center",
+        padding: "0 15px 15px 15px",
+      }}
+    >
       <Box
         sx={{
+          justifySelf: "self-start",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
@@ -37,11 +47,10 @@ export function TitleComponent() {
         bundling de desarrollo y de producción.
       </Typography>
       <Paper
-        variant="outlined"
-        elevation={23}
+        variant="elevation"
+        elevation={3}
         sx={{
-          padding: " 15px 30px",
-          // backgroundColor: "#eceff1",
+          padding: "15px 30px",
         }}
       >
         <Typography variant="body1" align="justify">
@@ -56,6 +65,6 @@ export function TitleComponent() {
           para generar el bundle final (por defecto en el directorio './dist').
         </Typography>
       </Paper>
-    </CenterColumnLayout>
+    </Box>
   );
 }

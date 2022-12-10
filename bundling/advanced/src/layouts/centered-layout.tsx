@@ -14,6 +14,7 @@ export const CenterColumnLayout: React.FC<Props> = ({
     <Box
       id={sectionId}
       sx={{
+        flexGrow: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

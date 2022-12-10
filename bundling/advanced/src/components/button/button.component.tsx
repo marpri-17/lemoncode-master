@@ -2,6 +2,7 @@ import React, { BaseSyntheticEvent } from "react";
 import { Button, SxProps } from "@mui/material";
 
 interface ButtonProps {
+  id?: string;
   label: string;
   size?:
     | "small"
@@ -12,10 +13,11 @@ interface ButtonProps {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   sx?: SxProps;
-  handler?: () => {};
+  propHandler?: (event: BaseSyntheticEvent) => void;
 }
 
 export const CustomButton: React.FC<ButtonProps> = ({
+  id,
   label,
   textColor,
   startIcon,
@@ -23,23 +25,30 @@ export const CustomButton: React.FC<ButtonProps> = ({
   size,
   variant,
   sx,
+  propHandler,
 }) => {
   const handler = (event: BaseSyntheticEvent) => {
-    console.log(event);
+    console.log(
+      id
+        ? `On click button id: ${id}. Pass propHandler to emit`
+        : `Custom event for button component. Pass propHandler to emit`
+    );
+    event.preventDefault();
   };
 
   return (
     <Button
-      variant={variant ? variant : "text"}
-      size={size ? size : "medium"}
-      startIcon={startIcon ? startIcon : ""}
+      id={id ?? ""}
+      variant={variant ?? "text"}
+      size={size ?? "medium"}
+      startIcon={startIcon ?? ""}
       sx={
         sx
           ? { ...sx, ...{ color: textColor ?? "inherit" } }
           : { color: textColor ?? "inherit" }
       }
       endIcon={endIcon ? endIcon : ""}
-      onClick={handler}
+      onClick={propHandler ?? handler}
     >
       {label}
     </Button>

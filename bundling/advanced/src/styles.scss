@@ -5,6 +5,15 @@ code {
   background-color: #eceff1;
 }
 
+body,
+#root {
+  min-height: 100vh;
+
+  #root > .MuiBox-root {
+    min-height: 100vh;
+  }
+}
+
 #quote {
   padding: vars.$padding-quote;
   display: flex;

@@ -1,22 +1,40 @@
-import React from "react";
+import React, { BaseSyntheticEvent } from "react";
 import { Add as AddIcon } from "@mui/icons-material";
-import { CenterColumnLayout } from "layouts/centered-layout";
 import { CustomButton } from "components/button/button.component";
 import { TitleComponent } from "./title/title.component";
-import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const Welcome: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handler = (event: BaseSyntheticEvent) => {
+    event.preventDefault();
+    navigate("about");
+  };
+
   return (
-    <CenterColumnLayout sectionId="welcome">
+    <Box
+      id="welcome"
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
       <TitleComponent />
 
-      <CustomButton
-        sx={{ justifySelf: "end" }}
-        label="Saber más"
-        variant="outlined"
-        size="large"
-        startIcon={<AddIcon />}
-      ></CustomButton>
-    </CenterColumnLayout>
+      <Box sx={{ flexShrink: 1 }}>
+        <CustomButton
+          label="Saber más"
+          variant="outlined"
+          size="large"
+          startIcon={<AddIcon />}
+          propHandler={handler}
+        ></CustomButton>
+      </Box>
+    </Box>
   );
 };
