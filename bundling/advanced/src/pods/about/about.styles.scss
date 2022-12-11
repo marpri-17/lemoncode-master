@@ -1,14 +1,16 @@
 @use "core/scss/variables.scss" as vars;
 
 #about {
+  padding: vars.$padding-generic;
+
   img {
     max-width: 50%;
     height: 50%;
   }
 
-  .about {
+  /* .about {
     &-title {
       color: vars.$text-color;
     }
-  }
+  } */
 }

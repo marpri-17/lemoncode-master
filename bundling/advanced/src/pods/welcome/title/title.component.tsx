@@ -3,6 +3,7 @@ import reactImg from "assets/react_logo.png";
 import webpackImg from "assets/webpack_icon.png";
 import materialImg from "assets/material.png";
 import { Box, Paper, Typography } from "@mui/material";
+import rocketSvg from "assets/rocket.svg";
 import "./title.styles.scss";
 
 export function TitleComponent() {
@@ -50,10 +51,12 @@ export function TitleComponent() {
         variant="elevation"
         elevation={3}
         sx={{
-          padding: "15px 3.1%",
+          padding: "15px 0 15px 3.1%",
+          display: "flex",
+          justifyContent: "space-around",
         }}
       >
-        <Typography variant="body1" align="justify">
+        <Typography variant="body1" align="justify" sx={{ flexGrow: 1 }}>
           - Instala las dependencias y ejecuta el modo desarrollo con el comando{" "}
           <code>npm start</code> para arrancar el servidor web de webpack y la
           comprobación de tipos de TypeScript. Ejecutando{" "}
@@ -64,6 +67,7 @@ export function TitleComponent() {
           configuración del modo producción, y <code>npm run build:prod</code>{" "}
           para generar el bundle final (por defecto en el directorio './dist').
         </Typography>
+        <Box id="title-rocket" component="img" src={rocketSvg}></Box>
       </Paper>
     </Box>
   );

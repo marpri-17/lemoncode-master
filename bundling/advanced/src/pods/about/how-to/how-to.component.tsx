@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Link, Typography } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export const HowToComponent: React.FC = () => {
   return (
@@ -44,6 +45,17 @@ export const HowToComponent: React.FC = () => {
         Soporta el uso de Typescript y React gracias a los loaders gestionados
         por Babel (configurados en el fichero .bablrc)
       </Typography>
+      <Link
+        variant="h6"
+        underline="hover"
+        rel="noreferrer"
+        target="_blank"
+        href="https://github.com/marpri-17/lemoncode-master/tree/main/bundling/advanced"
+        sx={{ display: "flex", alignItems: "center" }}
+      >
+        <GitHubIcon sx={{ marginRight: "0.2rem" }} />
+        View on Github
+      </Link>
     </Box>
   );
 };
