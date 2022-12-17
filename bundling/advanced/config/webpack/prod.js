@@ -13,8 +13,8 @@ module.exports = merge(commons, {
         assetModuleFilename: 'images/[hash][ext][query]'
     },
     performance: {
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
+        maxEntrypointSize: 624000,
+        maxAssetSize: 624000
     },
     plugins: [
         new DotEnv({

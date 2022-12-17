@@ -14,7 +14,6 @@ root.render(
     <StrictMode>
       <CssBaseline />
       <RouterRoot />
-      {/*  <RouterProvider router={router} /> */}
     </StrictMode>
   </>
 );

@@ -1,9 +1,10 @@
 import React, { BaseSyntheticEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { Add as AddIcon } from "@mui/icons-material";
+import { Box } from "@mui/material";
 import { CustomButton } from "components/button/button.component";
 import { TitleComponent } from "./title/title.component";
-import { Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { QuoteContainer } from "./quote";
 
 export const Welcome: React.FC = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export const Welcome: React.FC = () => {
       }}
     >
       <TitleComponent />
-
+      <QuoteContainer />
       <Box sx={{ flexShrink: 1 }}>
         <CustomButton
           label="Saber más"

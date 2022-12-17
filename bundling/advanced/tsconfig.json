@@ -18,9 +18,9 @@
       "@assets": ["./assets/*"],
       "@core": ["./core/*"],
       "@layouts": ["./layouts/*"],
-      "@models": ["./models/*"],
       "@pods": ["./pods/*"],
-      "@scenes": ["./scenes/*"]
+      "@scenes": ["./scenes/*"],
+      "@mocks": ["./mocks/*"]
     }
   },
   "include": ["src/**/*", "./index.d.ts"],

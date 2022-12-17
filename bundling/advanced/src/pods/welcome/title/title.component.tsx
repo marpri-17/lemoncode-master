@@ -51,23 +51,24 @@ export function TitleComponent() {
         variant="elevation"
         elevation={3}
         sx={{
-          padding: "15px 0 15px 3.1%",
+          padding: "15px 3% 15px 0",
           display: "flex",
           justifyContent: "space-around",
         }}
       >
+        <Box id="title-rocket" component="img" src={rocketSvg}></Box>
         <Typography variant="body1" align="justify" sx={{ flexGrow: 1 }}>
-          - Instala las dependencias y ejecuta el modo desarrollo con el comando{" "}
+          • Instala las dependencias y ejecuta el modo desarrollo con el comando{" "}
           <code>npm start</code> para arrancar el servidor web de webpack y la
           comprobación de tipos de TypeScript. Ejecutando{" "}
           <code>npm run build</code> podemos generar un bundle utilizando las
-          variables configuradas en el modo desarrollo. <br /> - Para el deploy
-          a producción, los comandos disponibles son <code>npm start:prod</code>{" "}
-          para arrancar en local un servidor web de webpack utilizando la
-          configuración del modo producción, y <code>npm run build:prod</code>{" "}
-          para generar el bundle final (por defecto en el directorio './dist').
+          variables configuradas en el modo desarrollo.
+          <br />• Para el deploy a producción, los comandos disponibles son{" "}
+          <code>npm start:prod</code> para arrancar en local un servidor web de
+          webpack utilizando la configuración del modo producción, y{" "}
+          <code>npm run build:prod</code> para generar el bundle final (por
+          defecto en el directorio './dist').
         </Typography>
-        <Box id="title-rocket" component="img" src={rocketSvg}></Box>
       </Paper>
     </Box>
   );

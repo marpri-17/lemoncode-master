@@ -15,8 +15,8 @@ module.exports = {
             components: path.join(path.resolve(__dirname, "../../"), "src/components"),
             assets: path.join(path.resolve(__dirname, "../../"), "src/assets"),
             core: path.join(path.resolve(__dirname, "../../"), "src/core"),
-            "layouts": path.join(path.resolve(__dirname, "../../"), "src/layouts"),
-            models: path.join(path.resolve(__dirname, "../../"), "src/models"),
+            layouts: path.join(path.resolve(__dirname, "../../"), "src/layouts"),
+            mocks: path.join(path.resolve(__dirname, "../../"), "src/mocks"),
             pods: path.join(path.resolve(__dirname, "../../"), "src/pods"),
             scenes: path.join(path.resolve(__dirname, "../../"), "src/scenes")
         }
