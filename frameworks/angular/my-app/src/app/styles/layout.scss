@@ -1,0 +1,25 @@
+.flex-center {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-row-vertical-centered($horizontalDisp) {
+  @extend .flex-center;
+  justify-content: $horizontalDisp;
+  align-items: center;
+}
+
+@mixin flex-row-horizontal-centered($verticalDisp) {
+  @extend .flex-center;
+  justify-content: center;
+  align-items: $verticalDisp;
+}
+
+.full-size {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.light-background {
+  background-color: #f2f2f2;
+}

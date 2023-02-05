@@ -1,0 +1,11 @@
+@use "../../styles/layout.scss" as layout;
+
+.login- {
+  &-flex-center {
+    @include layout.flex-row-vertical-centered(center);
+  }
+
+  &-heigth {
+    min-height: 100vh;
+  }
+}
