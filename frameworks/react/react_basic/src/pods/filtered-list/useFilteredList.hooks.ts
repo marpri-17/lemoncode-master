@@ -1,6 +1,13 @@
 import React from "react";
 import { MemberApimodel } from "@core/apis/github.apimodel";
 import { getOrganizationMembersList } from "@core/apis/github.service";
+import { AxiosError } from "axios";
+
+const isMemberApimodel = (
+  data: MemberApimodel[] | AxiosError
+): data is MemberApimodel[] => {
+  return Array.isArray(data);
+};
 
 interface Pagination {
   pageSize: number;
@@ -9,35 +16,23 @@ interface Pagination {
 }
 
 export const useFilteredList = () => {
-  const [pagination, setPagination] = React.useState<Pagination>({
+  /*   const [pagination, setPagination] = React.useState<Pagination>({
     pageSize: 5,
-    currentPage: 6,
+    currentPage: 1,
     lastPage: null,
-  });
+  }); */
   const [organizationName, setOrganizationName] = React.useState<string>("");
   const [members, setMembers] = React.useState<MemberApimodel[]>([]);
 
   React.useEffect(() => {
-    console.log(organizationName);
     if (organizationName !== "") {
-      getOrganizationMembersList(
-        organizationName,
-        pagination.pageSize,
-        pagination.currentPage
-      ).then((membersList) => {
+      getOrganizationMembersList(organizationName).then((membersList) => {
         console.log(membersList);
-        if (membersList.data) {
-          const linkHeaders = membersList.headers.link || null;
-          if (linkHeaders) {
-            const lastPageLinkHeader = linkHeaders
-              .split(",")
-              .find((header) => header.includes("last"));
-            const pageNumberString = lastPageLinkHeader.split("&page");
-            console.log(pageNumberString);
-            // const pageNumber = pageNumberString.substring;
-          }
-          setMembers(membersList.data);
+        if (isMemberApimodel(membersList)) {
+          setMembers(membersList);
         } else {
+          // error
+          console.log(membersList.message);
           setMembers([]);
         }
       });
