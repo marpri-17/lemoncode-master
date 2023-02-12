@@ -35,7 +35,6 @@ bundling/advanced/dist/**
 
 frameworks/react/react_basic/node_modules/**
 frameworks/react/react_basic/dist/**
-frameworks/react/react_advanced/
 frameworks/react/react_advanced/node_modules/**
 frameworks/react/react_advanced/dist/**
 frameworks/angular/my-app/node_modules/**
