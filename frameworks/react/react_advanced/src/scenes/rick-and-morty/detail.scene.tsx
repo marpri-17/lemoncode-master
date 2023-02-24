@@ -1,6 +1,5 @@
 import React from "react";
 import { AppLayout } from "@layouts/app.layout";
-import { DetailContainer } from "@pods/detail";
 
 export const RickAndMortyDetailScene: React.FC = () => {
   return (

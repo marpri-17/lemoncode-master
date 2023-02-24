@@ -1,11 +1,11 @@
 import React from "react";
+import { Search } from "./search/search.component";
 import { ListComponent } from "./list/list.component";
 import { mapMembersApimodelToMembersViewModel } from "./list/list.mapper";
 import { MemberViewModel } from "./list/list.viewmodel";
-import { OrganizationFilter } from "./organizationFilter/organizationFilter";
 import { useFilteredList } from "./useFilteredList.hooks";
 
-export const FilteredListMembers: React.FunctionComponent = () => {
+export const MemberListComponent: React.FunctionComponent = () => {
   const [filter, setFilter] = React.useState("");
   const [memberList, setMemberList] = React.useState<MemberViewModel[]>([]);
   const { setOrganizationName, members } = useFilteredList();
@@ -13,7 +13,7 @@ export const FilteredListMembers: React.FunctionComponent = () => {
   React.useEffect(() => {
     localStorage.getItem("filter")
       ? setFilter(localStorage.getItem("filter"))
-      : setFilter("lemoncode");
+      : setFilter("lemoncode"); // FIXME
   }, []);
 
   React.useEffect(() => {
@@ -26,14 +26,16 @@ export const FilteredListMembers: React.FunctionComponent = () => {
     setMemberList(mapMembersApimodelToMembersViewModel(members));
   }, [members]);
 
-  const setFilterOnChange = (organizationName: string) =>
-    setFilter(organizationName);
+  const onChangeOrganizationFilter = (oganizationName: string) => {
+    console.log(oganizationName);
+    setFilter(oganizationName);
+  };
 
   return (
     <>
-      <OrganizationFilter
-        organizationName={filter}
-        setOrganizationName={setFilterOnChange}
+      <Search
+        onChangeFilterValue={onChangeOrganizationFilter}
+        wrapperSx={{ justifyContent: "flex-start" }}
       />
       <ListComponent listItems={memberList} />
     </>

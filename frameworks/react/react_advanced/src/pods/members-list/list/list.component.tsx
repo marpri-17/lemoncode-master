@@ -22,8 +22,7 @@ export const ListComponent: React.FC<Props> = ({ listItems }) =>
           </React.Fragment>
         ))}
       </div>
-      {/* <Link to={routes.github.list}>Navigate to detail page</Link> */}
     </>
   ) : (
-    <>No results found</>
+    <> No results found </>
   );

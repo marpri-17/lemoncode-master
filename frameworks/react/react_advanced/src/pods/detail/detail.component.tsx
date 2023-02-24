@@ -1,7 +1,7 @@
 import React from "react";
-import { MemberViewModel } from "@pods/filtered-list";
 import { Link } from "react-router-dom";
 import { routes } from "@core/router/routes";
+import { MemberViewModel } from "@pods/members-list";
 
 interface Props {
   member: MemberViewModel;

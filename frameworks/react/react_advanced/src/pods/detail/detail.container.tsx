@@ -1,9 +1,9 @@
+import React from "react";
 import { getMemberDetail } from "@core/apis/github.service";
 import {
-  MemberViewModel,
   mapMemberApimodelToMemberViewmodel,
-} from "@pods/filtered-list";
-import React, { useEffect } from "react";
+  MemberViewModel,
+} from "@pods/members-list";
 import { useParams } from "react-router-dom";
 import { DetailComponent } from "./detail.component";
 

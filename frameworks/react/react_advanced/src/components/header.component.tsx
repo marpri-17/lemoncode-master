@@ -1,8 +1,6 @@
 import React from "react";
-import { AppBar, Link, List, Toolbar } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
+import { AppBar, List, Toolbar, ListItem } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const HeaderComponent: React.FC = () => {
   return (
@@ -11,14 +9,14 @@ export const HeaderComponent: React.FC = () => {
         <nav aria-label="navigation header" style={{ flexGrow: 1 }}>
           <List className="header-list">
             <ListItem
-              component={RouterLink}
+              component={Link}
               to={"/github"}
               className="header-list-github"
             >
               Github
             </ListItem>
             <ListItem
-              component={RouterLink}
+              component={Link}
               to={"/rickandmorty"}
               className="header-list-rickandmorty"
             >
