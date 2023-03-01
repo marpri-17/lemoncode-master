@@ -1,6 +1,5 @@
 import React from "react";
-import { Search as SearchMatIcon } from "@mui/icons-material";
-import { Button, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { SxProps } from "@mui/material/styles";
 import { AppGenericInputDebounced } from "@components";
 
@@ -32,9 +31,9 @@ export const SearchDebounced: React.FC<Props> = (props) => {
   return (
     <Box component="form" maxWidth="sm" sx={mergeContainerStyles()}>
       <AppGenericInputDebounced
-        id="organization"
-        initialValue={props.defaultValue || "lemoncode"}
-        label="Search organization"
+        id="characterName"
+        initialValue={props.defaultValue || ""}
+        label="Search by character name"
         onChange={handleOnChange}
       />
     </Box>

@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AppGenericInput } from "@components/text-input.component";
 import { Search as SearchMatIcon } from "@mui/icons-material";
 import { Button, Container, Box } from "@mui/material";
 import { SxProps } from "@mui/material/styles";
+import { FilterContext } from "@pods/contexts/filter.context";
 
 interface Props {
   wrapperSx?: SxProps;
   defaultValue?: string;
   id?: string;
-  onChangeFilterValue: (filterValue: string) => void;
 }
 
 export const Search: React.FC<Props> = (props) => {
+  const { filterValue: organizationName, setFilterValue: setOrganizationName } =
+    useContext(FilterContext);
+
   const handleOnFormSubmit = (ev: React.BaseSyntheticEvent) => {
     ev.preventDefault();
     const organizationInput = (ev.target as HTMLFormElement).querySelector(
       "#organization"
     ) as HTMLInputElement;
     if (organizationInput) {
-      props.onChangeFilterValue(organizationInput.value);
+      setOrganizationName(organizationInput.value);
     }
   };
 
@@ -44,7 +47,7 @@ export const Search: React.FC<Props> = (props) => {
     >
       <AppGenericInput
         id="organization"
-        initialValue={props.defaultValue || "lemoncode"}
+        initialValue={props.defaultValue || organizationName}
         label="Search organization"
       />
       <Button

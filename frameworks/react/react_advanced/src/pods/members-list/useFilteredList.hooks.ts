@@ -9,19 +9,7 @@ const isMemberApimodel = (
   return Array.isArray(data);
 };
 
-interface Pagination {
-  pageSize: number;
-  currentPage: number;
-  lastPage: number;
-}
-
-export const useFilteredList = () => {
-  /*   const [pagination, setPagination] = React.useState<Pagination>({
-    pageSize: 5,
-    currentPage: 1,
-    lastPage: null,
-  }); */
-  const [organizationName, setOrganizationName] = React.useState<string>("");
+export const useFilteredList = (organizationName: string) => {
   const [members, setMembers] = React.useState<MemberApimodel[]>([]);
 
   React.useEffect(() => {
@@ -39,5 +27,5 @@ export const useFilteredList = () => {
     }
   }, [organizationName]);
 
-  return { setOrganizationName, members };
+  return { members };
 };

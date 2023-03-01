@@ -16,9 +16,12 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<LoginScene />} />
         <Route path="/github" element={<GithubListScene />} />
-        <Route path="/github/:id" element={<GithubDetailScene />} />
+        <Route path="/github/:login" element={<GithubDetailScene />} />
         <Route path="/rickandmorty" element={<RickAndMortyListScene />} />
-        <Route path="/rickandmorty/:id" element={<RickAndMortyDetailScene />} />
+        <Route
+          path="/rickandmorty/:character"
+          element={<RickAndMortyDetailScene />}
+        />
       </Routes>
     </Router>
   );
