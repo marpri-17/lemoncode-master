@@ -89,9 +89,6 @@ export const CharacterListContainer: React.FC = () => {
   const [characterName, setCharacterName] = React.useState<string>(null);
 
   const onChangeFilter = (characterName: string) => {
-    if (characterName.length) {
-      localStorage.setItem("organizationName", characterName);
-    }
     setCharacterName(characterName);
   };
 
@@ -102,7 +99,7 @@ export const CharacterListContainer: React.FC = () => {
         setFilterValue: onChangeFilter,
       }}
     >
-      <CharactersListComponent listItems={mockCharacters} />
+      <CharactersListComponent />
     </FilterContext.Provider>
   );
 };

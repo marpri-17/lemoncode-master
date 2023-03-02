@@ -3,19 +3,21 @@ import { SearchDebounced } from "../search-debounced/search-debounced.component"
 import { CharacterViewModel } from "../character-list.mapper";
 import { CardConfig, GenericCard } from "./item/card.component";
 import { routes } from "@core/router/routes";
+import { Grid } from "@mui/material";
+import { FilterContext } from "@pods/contexts/filter.context";
+import { useCharacterList } from "./useCharacterList.hook";
 
-interface Props {
-  listItems: CharacterViewModel[];
-}
+export const CharactersListComponent: React.FunctionComponent = (props) => {
+  const { filterValue: characterName } = React.useContext(FilterContext);
 
-export const CharactersListComponent: React.FunctionComponent<Props> = (
-  props
-) => {
-  const { listItems } = props;
+  const [characterList, setCharacterList] = React.useState<
+    CharacterViewModel[]
+  >([]);
+  const { characters } = useCharacterList(characterName);
 
-  const onChangeFilter = (value: string) => {
-    console.log(value);
-  };
+  React.useEffect(() => {
+    setCharacterList(characters);
+  }, [characters]);
 
   const configureCharacterCard = (
     character: CharacterViewModel
@@ -32,25 +34,23 @@ export const CharactersListComponent: React.FunctionComponent<Props> = (
 
   return (
     <>
-      <SearchDebounced
-        onChangeFilterValue={onChangeFilter}
-        wrapperSx={{ justifyContent: "flex-start" }}
-      />
-      {
-        /* TODO: LIST item with material*/
-        listItems.length ? (
-          listItems.map((character) => {
+      <SearchDebounced wrapperSx={{ justifyContent: "flex-start" }} />
+      {characterList && characterList.length ? (
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          {characterList.map((character) => {
             return (
-              <GenericCard
-                config={configureCharacterCard(character)}
-                key={character.id}
-              />
+              <Grid item xs={2} sm={4} md={4} key={character.id}>
+                <GenericCard
+                  config={configureCharacterCard(character)}
+                  key={character.id}
+                />
+              </Grid>
             );
-          })
-        ) : (
-          <> No results found </>
-        )
-      }
+          })}
+        </Grid>
+      ) : (
+        <> No results found </>
+      )}
     </>
   );
 };

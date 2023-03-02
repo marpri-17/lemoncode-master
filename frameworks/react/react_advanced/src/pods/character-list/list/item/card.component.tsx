@@ -13,9 +13,9 @@ import { routes } from "@core/router/routes";
 export interface CardConfig {
   image: string;
   title: string;
+  actionLabel: string;
   id?: string;
   mainListUrl?: string;
-  actionLabel: string;
 }
 
 interface Props {
@@ -25,8 +25,23 @@ interface Props {
 export const GenericCard: React.FC<Props> = (props) => {
   const { image, title, id, mainListUrl, actionLabel } = props.config;
   return (
-    <Card key={id || title} sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 140 }} image={image} title={title} />
+    <Card
+      key={id || title}
+      sx={
+        {
+          /*  maxWidth: 345 */
+        }
+      }
+    >
+      <CardMedia
+        sx={{
+          height: "220px",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+        }}
+        image={image}
+        title={title}
+      />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}

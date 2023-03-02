@@ -10,6 +10,7 @@ import {
   CardConfig,
 } from "@pods/character-list";
 import { routes } from "@core/router/routes";
+import { Typography } from "@mui/material";
 
 export const RickAndMortyDetailScene: React.FC = () => {
   const { character: characterId } = useParams();
@@ -44,7 +45,13 @@ export const RickAndMortyDetailScene: React.FC = () => {
 
   return (
     <AppLayout>
-      <h2>RICK AND MORTY CHARACTER</h2>
+      <Typography
+        variant="h4"
+        textAlign="center"
+        sx={{ paddingBottom: "2rem" }}
+      >
+        Character information
+      </Typography>
       {character ? (
         <GenericCard config={mapCharacterViewModelToCardConfig(character)} />
       ) : (
