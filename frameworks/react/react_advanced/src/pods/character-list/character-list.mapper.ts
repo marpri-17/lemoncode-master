@@ -10,13 +10,15 @@ export interface CharacterViewModel {
   image: string;
 }
 
+export interface CharacterResponseInfo {
+  count: number;
+  pages: number;
+  next: string | null;
+  prev: string | null;
+}
+
 export interface CharacterResponseApiModel {
-  info: {
-    count: number;
-    pages: number;
-    next: string | null;
-    prev: string | null;
-  };
+  info: CharacterResponseInfo;
   results: CharacterApiModel[];
 }
 

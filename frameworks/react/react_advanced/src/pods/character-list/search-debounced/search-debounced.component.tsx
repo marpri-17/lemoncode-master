@@ -15,7 +15,6 @@ export const SearchDebounced: React.FC<Props> = (props) => {
   const { setFilterValue } = React.useContext(FilterContext);
 
   const handleOnChange = (value: string) => {
-    console.log(value);
     if (props.onChangeFilterValue) {
       props.onChangeFilterValue(value);
     } else {
