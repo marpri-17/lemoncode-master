@@ -2,7 +2,7 @@
 
 Based on [basic list demo app](https://github.com/Lemoncode/master-frontend-lemoncode/tree/master/04-frameworks/01-react/04-basic-app/03-list) from lemoncode.
 
-#### React basic
+### React basic
 
 Minimun requeriments:
 
@@ -16,7 +16,7 @@ A basic implementation of this requeriments can be found at `react_basic` folder
 
 Download source code and go to folder root with cmd command `cd react_basic` and install dependencies with `npm install`. Run it with `npm start`.
 
-#### React advanced
+### React advanced
 
 Based on react basic exercise, folder `react_advanced` contains same react application with some improvements:
 
