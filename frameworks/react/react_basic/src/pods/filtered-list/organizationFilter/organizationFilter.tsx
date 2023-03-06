@@ -1,5 +1,4 @@
 import React from "react";
-import { useDebounce } from "use-debounce";
 
 interface Props {
   organizationName: string;
@@ -10,35 +9,30 @@ export const OrganizationFilter: React.FC<Props> = ({
   organizationName,
   setOrganizationName,
 }) => {
-  const [filter, setFilter] = React.useState("");
-  const [debouncedFilter] = useDebounce(filter, 1000);
-
-  React.useEffect(() => {
-    if (organizationName && organizationName.length) {
-      setFilter(organizationName);
-    }
-  }, [organizationName]);
-
-  // Use debounce here. State and useEffect to fetch
-  React.useEffect(() => {
-    if (debouncedFilter && debouncedFilter.length) {
-      localStorage.setItem("filter", debouncedFilter);
-      setOrganizationName(debouncedFilter);
-    }
-  }, [debouncedFilter]);
+  const handleFormSubmit = (event: React.BaseSyntheticEvent) => {
+    event.preventDefault();
+    const organizationName: HTMLInputElement = (
+      event.target as HTMLFormElement
+    ).querySelector("input#organizationName");
+    setOrganizationName(organizationName.value);
+  };
 
   return (
     <form
       className="list-header-container"
-      onSubmit={(e) => e.preventDefault()}
+      style={{ paddingBottom: "1rem", paddingTop: "1rem" }}
+      onSubmit={handleFormSubmit}
     >
       <input
+        id="organizationName"
         type="text"
         className="list-header-input"
         placeholder="Search organization"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        defaultValue={organizationName}
       ></input>
+      <button type="submit" className="search-button">
+        Buscar
+      </button>
     </form>
   );
 };

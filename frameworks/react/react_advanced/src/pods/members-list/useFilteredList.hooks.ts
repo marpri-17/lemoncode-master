@@ -15,7 +15,6 @@ export const useFilteredList = (organizationName: string) => {
   React.useEffect(() => {
     if (organizationName !== "") {
       getOrganizationMembersList(organizationName).then((membersList) => {
-        console.log(membersList);
         if (isMemberApimodel(membersList)) {
           setMembers(membersList);
         } else {
