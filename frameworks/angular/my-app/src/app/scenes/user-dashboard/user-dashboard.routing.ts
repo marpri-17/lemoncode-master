@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CRUDView } from 'src/app/pods/user/crud/crud.component';
+import { GalleryView } from 'src/app/pods/user/gallery/gallery.component';
+import { ProfileView } from 'src/app/pods/user/profile/profile.component';
 import { UserMainView } from 'src/app/pods/user/user-main/user-main.component';
 import { UserDashboardComponent } from './user-dashboard.component';
 
@@ -8,8 +11,11 @@ const routes: Routes = [
     path: '',
     component: UserDashboardComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: UserMainView },
+      { path: 'gallery', component: GalleryView },
+      { path: 'crud', component: CRUDView },
+      { path: 'profile', component: ProfileView },
     ],
   },
 ];

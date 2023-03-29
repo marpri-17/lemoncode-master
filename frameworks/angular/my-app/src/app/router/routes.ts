@@ -1,22 +1,20 @@
 import { Routes } from '@angular/router';
-import { LoginScene } from '../scenes/login/login.scene';
-import { UserDashboardComponent } from '../scenes/user-dashboard/user-dashboard.component';
-
-interface AppRoutes {
-  login: string;
-  dashboard: LoggedUserRoutes;
-}
-
-interface LoggedUserRoutes {
-  home: 'string';
-}
-
-const loggedUserPaths = {
-  home: '/dashboard',
-};
+import { AboutComponent } from '../pods/about/about.component';
+import { HomeComponent } from '../pods/home/home.component';
+import { LoginComponent } from '../pods/login/login.component';
+import { AppDashboardScene } from '../scenes/app-dashboard/app-dashboard.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginScene },
+  {
+    path: '',
+    component: AppDashboardScene,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+      // { path: '**', redirectTo: 'home', pathMatch: 'full' },
+    ],
+  },
   {
     path: 'user',
     loadChildren: () =>
@@ -24,4 +22,5 @@ export const routes: Routes = [
         (m) => m.UserDashboardModule
       ),
   },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];

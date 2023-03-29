@@ -7,12 +7,12 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'login-scene',
-  templateUrl: './login-scene.component.html',
+  selector: 'login-component',
+  templateUrl: './login.component.html',
   host: { class: '' },
-  styleUrls: ['./login-scene.scss'],
+  styleUrls: ['./login.scss'],
 })
-export class LoginScene implements OnInit {
+export class LoginComponent implements OnInit {
   public loginForm = new FormGroup<any>({}) /* : FormGroup = null */;
   public username = new FormControl('', []);
   public password = new FormControl('', []);
