@@ -1,16 +1,21 @@
-.flex-center {
+.flex-row {
   display: flex;
   flex-direction: row;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin flex-row-vertical-centered($horizontalDisp) {
-  @extend .flex-center;
+  @extend .flex-row;
   justify-content: $horizontalDisp;
   align-items: center;
 }
 
 @mixin flex-row-horizontal-centered($verticalDisp) {
-  @extend .flex-center;
+  @extend .flex-row;
   justify-content: center;
   align-items: $verticalDisp;
 }

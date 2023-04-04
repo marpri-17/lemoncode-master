@@ -3,6 +3,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 import { AppDashboardScene } from './app-dashboard.component';
 import { MyAppComponentsModule } from '../../components/components.module';
 import { AboutComponent } from '../../pods/about/about.component';
@@ -11,11 +12,12 @@ import { LoginComponent } from '../../pods/login/login.component';
 
 @NgModule({
   imports: [
-    MatFormFieldModule,
-    MatInputModule,
     MyAppComponentsModule,
     RouterModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
+    MatCardModule,
   ],
   exports: [],
   declarations: [

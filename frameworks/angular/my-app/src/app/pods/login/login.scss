@@ -1,11 +1,25 @@
 @use "../../styles/layout.scss" as layout;
 
 .login- {
-  &-flex-center {
-    @include layout.flex-row-vertical-centered(center);
+  &-flex-main {
+    justify-content: start;
+    align-items: center;
   }
 
   &-heigth {
     min-height: 100vh;
+  }
+
+  &-hint--container {
+    border-radius: 3px;
+    padding: 1.5rem;
+    background-color: rgb(217, 217, 0, 0.3);
+    margin: 0.8rem;
+  }
+  &-form--container {
+    margin: 0.8rem;
+  }
+  &-confirm--container {
+    padding: 1rem;
   }
 }
