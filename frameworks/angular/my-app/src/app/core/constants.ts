@@ -1,6 +1,6 @@
-import { ILoggin } from './models/logging.model';
+import { ILogging } from './models/logging.model';
 
-export const MOCK_USER: ILoggin = {
+export const MOCK_USER: ILogging = {
   username: 'master@lemoncode.net',
   password: '12345678',
 };

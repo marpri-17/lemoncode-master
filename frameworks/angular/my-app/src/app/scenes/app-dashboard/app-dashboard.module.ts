@@ -9,6 +9,8 @@ import { MyAppComponentsModule } from '../../components/components.module';
 import { AboutComponent } from '../../pods/about/about.component';
 import { HomeComponent } from '../../pods/home/home.component';
 import { LoginComponent } from '../../pods/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import { LoginComponent } from '../../pods/login/login.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   exports: [],
   declarations: [

@@ -3,23 +3,24 @@
     <p>Username: master@lemoncode.net</p>
     <p>Password: 12345678</p>
   </aside>
-  <mat-card class="login--form--container">
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input type=" email" matInput placeholder="Ex. pat@example.com">
-        <mat-hint>Errors appear instantly!</mat-hint>
-      </mat-form-field>
+  <form [formGroup]="loginForm" (submit)="onClickLogIn($event)">
+    <mat-card class="login--form--container">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type=" email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </p>
+    </mat-card>
+    <p class="login--confirm--container">
+      <button mat-raised-button type="submit">Log in!</button>
     </p>
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Ex. pat@example.com">
-        <mat-hint></mat-hint>
-      </mat-form-field>
-    </p>
-  </mat-card>
-  <p class="login--confirm--container">
-    <button mat-raised-button routerLink="/user/dashboard">Log in!</button>
-  </p>
+  </form>
 </section>

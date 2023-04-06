@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ILoggin } from '../models/logging.model';
+import { ILogging } from '../models/logging.model';
 import { MOCK_USER } from '../constants';
 
 @Injectable({ providedIn: 'root' })
 export class LogginService {
   public isUserLogIn: boolean = false;
 
-  private userLogged: ILoggin = null;
+  private userLogged: ILogging = null;
 
   private sessionStorageKey = 'myappLogginInfo';
 
@@ -17,20 +17,19 @@ export class LogginService {
     }
   }
 
-  public login(login: ILoggin): boolean {
+  public login(login: ILogging): boolean {
     if (
       login.username === MOCK_USER.username &&
       login.password === MOCK_USER.password
     ) {
-      this.userLogged = login;
-      this.isUserLogIn = true;
+      this.setUserLogged(login);
+      return true;
     }
 
-    return this.isLogged();
+    return false;
   }
 
   public logout(): void {
-    this.clearUserLogged();
     this.userLogged = null;
     this.isUserLogIn = false;
   }
@@ -43,20 +42,17 @@ export class LogginService {
     return this.userLogged.username;
   }
 
-  private setUserLogged(login: ILoggin) {
+  private setUserLogged(login: ILogging) {
     sessionStorage.setItem(this.sessionStorageKey, JSON.stringify(login));
     this.userLogged = login;
+    this.isUserLogIn = true;
   }
 
-  private recoverLoginInfo(): ILoggin | null {
+  private recoverLoginInfo(): ILogging | null {
     const sessionStorageInfo = sessionStorage.getItem(this.sessionStorageKey);
     if (sessionStorageInfo) {
       return JSON.parse(sessionStorageInfo);
     }
     return null;
-  }
-
-  private clearUserLogged() {
-    this.userLogged = null;
   }
 }

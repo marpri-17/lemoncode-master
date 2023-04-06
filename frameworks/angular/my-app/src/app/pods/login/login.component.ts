@@ -5,6 +5,9 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LogginService } from '../../core/services/loggin.service';
 
 @Component({
   selector: 'login-component',
@@ -13,16 +16,44 @@ import {
   styleUrls: ['./login.scss'],
 })
 export class LoginComponent implements OnInit {
-  public loginForm = new FormGroup<any>({}) /* : FormGroup = null */;
-  public username = new FormControl('', []);
-  public password = new FormControl('', []);
+  public loginForm = new FormGroup<any>({});
 
-  constructor(private fb: FormBuilder) {}
+  public errorLoginConfig = {
+    message: 'Loggin failed! Try again',
+    action: 'Close',
+  };
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private loginService: LogginService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   public ngOnInit() {
     this.loginForm = this.fb.group({
-      username: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
+  }
+
+  public onClickLogIn(event) {
+    event.preventDefault();
+    console.log(event);
+    console.log(this.loginForm);
+    const { email, password } = this.loginForm.controls;
+    if (
+      this.loginService.login({
+        username: email.value,
+        password: password.value,
+      })
+    ) {
+      this.router.navigate(['user', 'dashboard']);
+    } else {
+      this._snackBar.open(
+        this.errorLoginConfig.message,
+        this.errorLoginConfig.action
+      );
+    }
   }
 }
