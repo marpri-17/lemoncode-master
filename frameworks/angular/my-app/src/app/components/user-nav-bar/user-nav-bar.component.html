@@ -3,4 +3,12 @@
   <button mat-button routerLink="gallery">Galería</button>
   <button mat-button routerLink="crud">CRUD</button>
   <button mat-button routerLink="profile">Profile</button>
+  <span class="example-spacer"></span>
+  <ng-container *ngIf="username">
+    <span style="padding: 0 0.5rem;">{{username}}</span>
+  </ng-container>
+  <button mat-raised-button color="accent" routerLink="['home']"> Log out
+    <mat-icon style="margin-left: 0.1rem;" aria-hidden="false" aria-label="Example home icon"
+      fontIcon="logout"></mat-icon>
+  </button>
 </mat-toolbar>

@@ -39,7 +39,10 @@ export class LogginService {
   }
 
   public getUsername(): string {
-    return this.userLogged.username;
+    if (this.isLogged) {
+      return this.userLogged.username;
+    }
+    return null;
   }
 
   private setUserLogged(login: ILogging) {

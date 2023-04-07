@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LogginService } from './core/services/loggin.service';
 import { AppRoutingModule } from './core/router/app-routing.module';
 import { LoginSceneView } from './scenes/app-dashboard/app-dashboard.module';
+import { isLogginAuthGuard } from './core/guards/isLogginAuthGuard';
+import { isAlreadyLoggedGuard } from './core/guards/isAlreadyLoggedGuard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +18,12 @@ import { LoginSceneView } from './scenes/app-dashboard/app-dashboard.module';
     FormsModule,
     LoginSceneView,
   ],
-  providers: [FormBuilder, LogginService],
+  providers: [
+    FormBuilder,
+    LogginService,
+    isLogginAuthGuard,
+    isAlreadyLoggedGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

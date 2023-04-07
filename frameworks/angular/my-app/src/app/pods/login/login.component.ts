@@ -12,7 +12,6 @@ import { LogginService } from '../../core/services/loggin.service';
 @Component({
   selector: 'login-component',
   templateUrl: './login.component.html',
-  host: { class: '' },
   styleUrls: ['./login.scss'],
 })
 export class LoginComponent implements OnInit {
@@ -22,6 +21,8 @@ export class LoginComponent implements OnInit {
     message: 'Loggin failed! Try again',
     action: 'Close',
   };
+
+  private snackbarDismissInterval = 5000;
 
   constructor(
     private fb: FormBuilder,
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
+    console.log(`LOGGED: ${this.loginService.isLogged()}`);
   }
 
   public onClickLogIn(event) {
@@ -52,7 +54,10 @@ export class LoginComponent implements OnInit {
     } else {
       this._snackBar.open(
         this.errorLoginConfig.message,
-        this.errorLoginConfig.action
+        this.errorLoginConfig.action,
+        {
+          duration: this.snackbarDismissInterval,
+        }
       );
     }
   }

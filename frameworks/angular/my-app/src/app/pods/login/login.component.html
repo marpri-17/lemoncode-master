@@ -20,7 +20,7 @@
       </p>
     </mat-card>
     <p class="login--confirm--container">
-      <button mat-raised-button type="submit">Log in!</button>
+      <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Log in!</button>
     </p>
   </form>
 </section>
