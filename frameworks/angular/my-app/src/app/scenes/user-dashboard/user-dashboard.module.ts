@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 import { MyAppComponentsModule } from '../../components/components.module';
-import { ProfileView } from '../../pods/user/profile/profile.component';
-import { UserMainView } from '../../pods/user/user-main/user-main.component';
-import { GalleryView } from '../../pods/user/gallery/gallery.component';
-import { CRUDView } from '../../pods/user/crud/crud.component';
-
 import { UserDashboardComponent } from './user-dashboard.component';
 import { UserDashboardRoutingModule } from './user-dashboard.routing';
-import { MatButtonModule } from '@angular/material/button';
+import { UserViewsModule } from '../../pods/user/user-views.module';
+import { MusicGalleryService } from '../../pods/user/gallery/gallery.service';
 
 @NgModule({
   imports: [
@@ -16,15 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule,
     UserDashboardRoutingModule,
     MatButtonModule,
+    UserViewsModule,
   ],
-  declarations: [
-    UserDashboardComponent,
-    ProfileView,
-    UserMainView,
-    GalleryView,
-    CRUDView,
-  ],
+  declarations: [UserDashboardComponent],
   exports: [],
-  providers: [],
+  providers: [MusicGalleryService],
 })
 export class UserDashboardModule {}

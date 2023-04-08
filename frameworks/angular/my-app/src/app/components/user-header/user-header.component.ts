@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { LogginService } from 'src/app/core/services/loggin.service';
+import { LogginService } from '../../core/services/loggin.service';
 
 @Component({
   selector: 'user-header',
