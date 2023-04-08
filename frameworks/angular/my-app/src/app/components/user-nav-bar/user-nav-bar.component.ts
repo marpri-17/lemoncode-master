@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LogginService } from 'src/app/core/services/loggin.service';
 
 @Component({
   selector: 'user-nav-bar',
@@ -7,11 +6,7 @@ import { LogginService } from 'src/app/core/services/loggin.service';
   styleUrls: ['./user-nav-bar.scss'],
 })
 export class UserNavBarComponent implements OnInit {
-  public username: string;
+  constructor() {}
 
-  constructor(private logginService: LogginService) {}
-
-  ngOnInit() {
-    this.username = this.logginService.getUsername();
-  }
+  ngOnInit() {}
 }

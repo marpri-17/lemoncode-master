@@ -32,6 +32,7 @@ export class LogginService {
   public logout(): void {
     this.userLogged = null;
     this.isUserLogIn = false;
+    this.clearLoginInfo();
   }
 
   public isLogged(): boolean {
@@ -57,5 +58,11 @@ export class LogginService {
       return JSON.parse(sessionStorageInfo);
     }
     return null;
+  }
+
+  private clearLoginInfo() {
+    if (sessionStorage.getItem(this.sessionStorageKey)) {
+      sessionStorage.removeItem(this.sessionStorageKey);
+    }
   }
 }

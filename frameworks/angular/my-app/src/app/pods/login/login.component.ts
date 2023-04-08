@@ -36,13 +36,10 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
-    console.log(`LOGGED: ${this.loginService.isLogged()}`);
   }
 
   public onClickLogIn(event) {
     event.preventDefault();
-    console.log(event);
-    console.log(this.loginForm);
     const { email, password } = this.loginForm.controls;
     if (
       this.loginService.login({

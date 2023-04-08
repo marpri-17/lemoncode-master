@@ -8,9 +8,15 @@ import { CRUDView } from '../../pods/user/crud/crud.component';
 
 import { UserDashboardComponent } from './user-dashboard.component';
 import { UserDashboardRoutingModule } from './user-dashboard.routing';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  imports: [MyAppComponentsModule, RouterModule, UserDashboardRoutingModule],
+  imports: [
+    MyAppComponentsModule,
+    RouterModule,
+    UserDashboardRoutingModule,
+    MatButtonModule,
+  ],
   declarations: [
     UserDashboardComponent,
     ProfileView,

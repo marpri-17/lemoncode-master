@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AppNavBarComponent } from './app-nav-bar/app-nav-bar.component';
 import { UserNavBarComponent } from './user-nav-bar/user-nav-bar.component';
+import { UserHeaderComponent } from './user-header/user-header.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,8 @@ import { UserNavBarComponent } from './user-nav-bar/user-nav-bar.component';
     MatIconModule,
     CommonModule,
   ],
-  declarations: [AppNavBarComponent, UserNavBarComponent],
-  exports: [AppNavBarComponent, UserNavBarComponent],
+  declarations: [AppNavBarComponent, UserNavBarComponent, UserHeaderComponent],
+  exports: [AppNavBarComponent, UserNavBarComponent, UserHeaderComponent],
   providers: [],
 })
 export class MyAppComponentsModule {}
