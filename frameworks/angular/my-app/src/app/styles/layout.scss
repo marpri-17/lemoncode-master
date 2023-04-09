@@ -20,8 +20,19 @@
   align-items: $verticalDisp;
 }
 
+@mixin flex-column-vertical-centered($horizontalDisp) {
+  @extend .flex-column;
+  justify-content: $horizontalDisp;
+  align-items: center;
+}
+
+@mixin flex-column-horizontal-centered($verticalDisp) {
+  @extend .flex-column;
+  justify-content: center;
+  align-items: $verticalDisp;
+}
+
 .full-size {
-  min-width: 100vw;
   min-height: 100vh;
 }
 

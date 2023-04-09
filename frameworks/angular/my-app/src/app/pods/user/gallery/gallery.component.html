@@ -1,7 +1,8 @@
 <section id="gallery">
   <h1>Gallery</h1>
   <!-- TODO: styles, material -->
-  <article *ngIf="loading; else musicList">
+  <article *ngIf="loading; else musicList" class="gallery--main--container">
+    <mat-spinner></mat-spinner>
     Loading ...
   </article>
   <ul>
@@ -10,12 +11,65 @@
 </section>
 
 <ng-template #musicList>
-  <ul>
-    <li *ngFor="let album of albums">
-      <img [src]="album.picture" [alt]="album.album + '-'+ album.band" style="max-width: 50%; max-height: 60%;" />
-      <p>Album: {{album.album}}</p>
-      <p>{{album.band}}</p>
-    </li>
-  </ul>
-
+  <mat-grid-list cols="4">
+    <mat-grid-tile colspan="1" rowspan="2">
+      <mat-list>
+        <ng-container *ngFor="let album of albums">
+          <mat-list-item [id]="album.id" class="gallery--list--item" onclick="onSelectedImage(album.id)">
+            <img matListItemAvatar [src]="album.picture" [alt]="album.album + '-'+ album.band"
+              style="max-width: 100%; max-height: 80%;" />
+            <!-- <p matListItemTitle>Album: {{album.album}}</p>
+            <p matListItemLine>{{album.band}}</p> -->
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="2">
+      <mat-card id="selected" class="gallery--highlight--card">
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            Album:
+          </p>
+          <p>
+            Band:
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4">
+      <mat-action-list class="gallery--actions--vertical-list">
+        <ng-container mat-list-item>
+          <button mat-mini-fab color="primary">
+            <mat-icon aria-hidden="false" aria-label="Anterior" fontIcon="chevron_left"></mat-icon>
+          </button>
+        </ng-container>
+        <ng-container mat-list-item>
+          <button mat-mini-fab color="primary">
+            <mat-icon aria-hidden="false" aria-label="Play" fontIcon="play_arrow"></mat-icon>
+          </button>
+        </ng-container>
+        <ng-container mat-list-item>
+          <button mat-mini-fab color="primary">
+            <mat-icon aria-hidden="false" aria-label="Pause" fontIcon="stop"></mat-icon>
+          </button>
+        </ng-container>
+        <ng-container mat-list-item>
+          <button mat-mini-fab color="primary">
+            <mat-icon aria-hidden="false" aria-label="Siguiente" fontIcon="chevron_right"></mat-icon>
+          </button>
+        </ng-container>
+        <ng-container mat-list-item>
+          <button mat-icon-button color="primary">
+            <mat-icon aria-hidden="false" aria-label="Zoom in" fontIcon="zoom_in"></mat-icon>
+          </button>
+        </ng-container>
+        <ng-container mat-list-item>
+          <button mat-icon-button color="primary">
+            <mat-icon aria-hidden="false" aria-label="Zoom out" fontIcon="zoom_out"></mat-icon>
+          </button>
+        </ng-container>
+      </mat-action-list>
+    </mat-grid-tile>
+  </mat-grid-list>
 </ng-template>
