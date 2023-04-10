@@ -4,3 +4,7 @@ export interface IMusicGalleryItem {
   album: string;
   picture: string;
 }
+
+export interface IMusicGalleryItemViewModel extends IMusicGalleryItem {
+  selected: boolean;
+}

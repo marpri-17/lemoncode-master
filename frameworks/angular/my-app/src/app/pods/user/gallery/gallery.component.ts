@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MusicGalleryService } from './gallery.service';
 import { LogginService } from '../../../core/services/loggin.service';
-import { IMusicGalleryItem } from './gallery.model';
+import { IMusicGalleryItemViewModel } from './gallery.model';
 import { delay } from 'rxjs';
 
 @Component({
@@ -10,7 +10,7 @@ import { delay } from 'rxjs';
   styleUrls: ['./gallery.scss'],
 })
 export class GalleryView implements OnInit, OnDestroy {
-  public albums: IMusicGalleryItem[];
+  public albums: IMusicGalleryItemViewModel[];
   public loading: boolean = true;
 
   private spinnerTimeOut = 1000; // 3000;
@@ -38,11 +38,17 @@ export class GalleryView implements OnInit, OnDestroy {
     this.loading = true;
   }
 
-  public onSelectedImage(albumId: string) {
-    if (isNaN(+albumId)) {
-      console.error('album id is not valid');
-    } else {
-      // Destacar imagen
+  public onSelectedImage(albumId: number) {
+    this.clearSelected();
+    const selectedAlbum = this.albums.find((album) => album.id === +albumId);
+    if (selectedAlbum) {
+      selectedAlbum.selected = true;
+    }
+  }
+
+  private clearSelected() {
+    if (this.albums) {
+      this.albums.forEach((album) => (album.selected = false));
     }
   }
 }

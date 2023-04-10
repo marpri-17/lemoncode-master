@@ -15,7 +15,8 @@
     <mat-grid-tile colspan="1" rowspan="2">
       <mat-list>
         <ng-container *ngFor="let album of albums">
-          <mat-list-item [id]="album.id" class="gallery--list--item" onclick="onSelectedImage(album.id)">
+          <mat-list-item [id]="album.id" class="gallery--list--item" [ngClass]="{'selected': album.selected}"
+            (click)="onSelectedImage(album.id)">
             <img matListItemAvatar [src]="album.picture" [alt]="album.album + '-'+ album.band"
               style="max-width: 100%; max-height: 80%;" />
             <!-- <p matListItemTitle>Album: {{album.album}}</p>

@@ -10,13 +10,17 @@
       flex-direction: row;
       & mat-list-item {
         padding: 0 0.2rem;
-        border: 1px solid red;
+        border: 3px solid red;
       }
     }
   }
   &-list- {
     &-item {
       cursor: pointer;
+
+      &.selected {
+        border: 1px solid red;
+      }
     }
   }
 

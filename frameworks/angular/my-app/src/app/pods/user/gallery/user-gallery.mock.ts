@@ -1,4 +1,4 @@
-import { IMusicGalleryItem } from './gallery.model';
+import { IMusicGalleryItem, IMusicGalleryItemViewModel } from './gallery.model';
 
 const MOCK_SERVER_USER_MUSIC_GALLERY: IMusicGalleryItem[] = [
   {
@@ -63,9 +63,18 @@ const MOCK_SERVER_USER_MUSIC_GALLERY: IMusicGalleryItem[] = [
   },
 ];
 
-export const getUserFavoritesAlbumsMock = (): IMusicGalleryItem[] => {
-  return MOCK_SERVER_USER_MUSIC_GALLERY.map((album) => {
-    const localAssetsRoute = 'assets/images/gallery-albums';
-    return { ...album, ...{ picture: `${localAssetsRoute}/${album.picture}` } };
-  });
+const mapMusicaGalleryItemToViewModelMock = (
+  item: IMusicGalleryItem
+): IMusicGalleryItemViewModel => {
+  const localAssetsRoute = 'assets/images/gallery-albums';
+  return {
+    ...item,
+    ...{ picture: `${localAssetsRoute}/${item.picture}`, selected: false },
+  };
+};
+
+export const getUserFavoritesAlbumsMock = (): IMusicGalleryItemViewModel[] => {
+  return MOCK_SERVER_USER_MUSIC_GALLERY.map((album) =>
+    mapMusicaGalleryItemToViewModelMock(album)
+  );
 };

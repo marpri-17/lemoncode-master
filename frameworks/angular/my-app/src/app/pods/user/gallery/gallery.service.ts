@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { MOCK_ACTIVATED } from '../../../core/constants';
 import { getUserFavoritesAlbumsMock } from './user-gallery.mock';
-import { IMusicGalleryItem } from './gallery.model';
+import { IMusicGalleryItemViewModel } from './gallery.model';
 
 @Injectable({ providedIn: 'root' })
 export class MusicGalleryService {
@@ -10,7 +10,7 @@ export class MusicGalleryService {
 
   public getUserFavoritesAlbums(
     username: string
-  ): Observable<IMusicGalleryItem[]> {
+  ): Observable<IMusicGalleryItemViewModel[]> {
     if (MOCK_ACTIVATED) {
       return of(getUserFavoritesAlbumsMock());
     }
