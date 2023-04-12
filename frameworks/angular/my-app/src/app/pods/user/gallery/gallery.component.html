@@ -11,67 +11,71 @@
 </section>
 
 <ng-template #musicList>
-  <mat-grid-list cols="4">
-    <mat-grid-tile colspan="1" rowspan="2">
+  <mat-grid-list cols="12" rowHeight="1:4">
+    <mat-grid-tile colspan="2" rowspan="2">
       <mat-list>
         <ng-container *ngFor="let album of albums">
           <mat-list-item [id]="album.id" class="gallery--list--item" [ngClass]="{'selected': album.selected}"
             (click)="onSelectedImage(album.id)">
             <img matListItemAvatar [src]="album.picture" [alt]="album.album + '-'+ album.band"
               style="max-width: 100%; max-height: 80%;" />
-            <!-- <p matListItemTitle>Album: {{album.album}}</p>
-            <p matListItemLine>{{album.band}}</p> -->
           </mat-list-item>
         </ng-container>
       </mat-list>
     </mat-grid-tile>
-    <mat-grid-tile colspan="3" rowspan="2" *ngIf="selected">
-      <mat-card id="selected" class="gallery--highlight--card">
-        <img mat-card-image [src]="selected.picture" [alt]="selected.album + '-' + selected.band"
-          style="max-width: 50%;">
-        <mat-card-content>
+    <mat-grid-tile id="featured" colspan="10" rowspan="2" *ngIf="selected">
+      <div class="gallery--highlight--container">
+        <div class="gallery--highlight--pic-wrapper">
+          <img mat-card-image [src]="selected.picture" [alt]="selected.album + '-' + selected.band">
+
+        </div>
+        <div>
           <p>
             Album: {{selected.album}}
           </p>
           <p>
             Band: {{selected.band}}
           </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="4">
-      <mat-action-list class="gallery--actions--vertical-list">
-        <ng-container mat-list-item>
-          <button mat-mini-fab color="primary" (click)="onSelectedArrowControls('prev')" [disabled]="selected">
-            <mat-icon aria-hidden="false" aria-label="Anterior" fontIcon="chevron_left"></mat-icon>
-          </button>
-        </ng-container>
-        <ng-container mat-list-item>
-          <button mat-mini-fab color="primary" [disabled]="isPlaying">
-            <mat-icon aria-hidden="false" aria-label="Play" fontIcon="play_arrow"></mat-icon>
-          </button>
-        </ng-container>
-        <ng-container mat-list-item>
-          <button mat-mini-fab color="primary" [disabled]="!isPlaying">
-            <mat-icon aria-hidden="false" aria-label="Pause" fontIcon="stop"></mat-icon>
-          </button>
-        </ng-container>
-        <ng-container mat-list-item>
-          <button mat-mini-fab color="primary" (click)="onSelectedArrowControls('next')">
-            <mat-icon aria-hidden="false" aria-label="Siguiente" fontIcon="chevron_right"></mat-icon>
-          </button>
-        </ng-container>
-        <ng-container mat-list-item>
-          <button mat-icon-button color="primary">
-            <mat-icon aria-hidden="false" aria-label="Zoom in" fontIcon="zoom_in"></mat-icon>
-          </button>
-        </ng-container>
-        <ng-container mat-list-item>
-          <button mat-icon-button color="primary">
-            <mat-icon aria-hidden="false" aria-label="Zoom out" fontIcon="zoom_out"></mat-icon>
-          </button>
-        </ng-container>
-      </mat-action-list>
+        </div>
+        <div>
+          <mat-action-list class="gallery--highlight--actions-list">
+            <ng-container mat-list-item>
+              <button mat-mini-fab color="primary" (click)="onSelectedArrowControls('prev')"
+                [disabled]="selected.id === albums[0].id">
+                <mat-icon aria-hidden="false" aria-label="Anterior" fontIcon="chevron_left"></mat-icon>
+              </button>
+            </ng-container>
+            <ng-container mat-list-item>
+              <button mat-mini-fab color="primary" [disabled]="isPlaying">
+                <mat-icon aria-hidden="false" aria-label="Play" fontIcon="play_arrow"></mat-icon>
+              </button>
+            </ng-container>
+            <ng-container mat-list-item>
+              <button mat-mini-fab color="primary" [disabled]="!isPlaying">
+                <mat-icon aria-hidden="false" aria-label="Pause" fontIcon="stop"></mat-icon>
+              </button>
+            </ng-container>
+            <ng-container mat-list-item>
+              <button mat-mini-fab color="primary" (click)="onSelectedArrowControls('next')"
+                [disabled]="selected.id === albums[albums.length -1].id">
+                <mat-icon aria-hidden="false" aria-label="Siguiente" fontIcon="chevron_right"></mat-icon>
+              </button>
+            </ng-container>
+            <span class="zoom-actions">
+              <ng-container mat-list-item>
+                <button mat-icon-button color="primary">
+                  <mat-icon aria-hidden="false" aria-label="Zoom in" fontIcon="zoom_in"></mat-icon>
+                </button>
+              </ng-container>
+              <ng-container mat-list-item>
+                <button mat-icon-button color="primary">
+                  <mat-icon aria-hidden="false" aria-label="Zoom out" fontIcon="zoom_out"></mat-icon>
+                </button>
+              </ng-container>
+            </span>
+          </mat-action-list>
+        </div>
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
 </ng-template>
