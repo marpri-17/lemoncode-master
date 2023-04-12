@@ -13,6 +13,10 @@ export class GalleryView implements OnInit, OnDestroy {
   public albums: IMusicGalleryItemViewModel[];
   public loading: boolean = true;
 
+  public selected: IMusicGalleryItemViewModel;
+
+  public isPlaying: false;
+
   private spinnerTimeOut = 1000; // 3000;
 
   constructor(
@@ -42,13 +46,29 @@ export class GalleryView implements OnInit, OnDestroy {
     this.clearSelected();
     const selectedAlbum = this.albums.find((album) => album.id === +albumId);
     if (selectedAlbum) {
+      this.selected = selectedAlbum;
       selectedAlbum.selected = true;
     }
+  }
+
+  public onSelectedArrowControls(direction: 'prev' | 'next') {
+    const indexModifier = direction === 'prev' ? -1 : +1;
+    const selectedIndex = this.albums.findIndex(
+      (album) => album.selected === true
+    );
+    const modifiedIndex =
+      selectedIndex + indexModifier < 0
+        ? this.albums.length - 1 // Go to last
+        : selectedIndex + indexModifier > this.albums.length - 1
+        ? 0 // Go to first
+        : selectedIndex + indexModifier;
+    this.onSelectedImage(this.albums[modifiedIndex].id);
   }
 
   private clearSelected() {
     if (this.albums) {
       this.albums.forEach((album) => (album.selected = false));
     }
+    this.selected = null;
   }
 }

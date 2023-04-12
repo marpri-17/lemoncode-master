@@ -25,15 +25,16 @@
         </ng-container>
       </mat-list>
     </mat-grid-tile>
-    <mat-grid-tile colspan="3" rowspan="2">
+    <mat-grid-tile colspan="3" rowspan="2" *ngIf="selected">
       <mat-card id="selected" class="gallery--highlight--card">
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image [src]="selected.picture" [alt]="selected.album + '-' + selected.band"
+          style="max-width: 50%;">
         <mat-card-content>
           <p>
-            Album:
+            Album: {{selected.album}}
           </p>
           <p>
-            Band:
+            Band: {{selected.band}}
           </p>
         </mat-card-content>
       </mat-card>
@@ -41,22 +42,22 @@
     <mat-grid-tile colspan="4">
       <mat-action-list class="gallery--actions--vertical-list">
         <ng-container mat-list-item>
-          <button mat-mini-fab color="primary">
+          <button mat-mini-fab color="primary" (click)="onSelectedArrowControls('prev')" [disabled]="selected">
             <mat-icon aria-hidden="false" aria-label="Anterior" fontIcon="chevron_left"></mat-icon>
           </button>
         </ng-container>
         <ng-container mat-list-item>
-          <button mat-mini-fab color="primary">
+          <button mat-mini-fab color="primary" [disabled]="isPlaying">
             <mat-icon aria-hidden="false" aria-label="Play" fontIcon="play_arrow"></mat-icon>
           </button>
         </ng-container>
         <ng-container mat-list-item>
-          <button mat-mini-fab color="primary">
+          <button mat-mini-fab color="primary" [disabled]="!isPlaying">
             <mat-icon aria-hidden="false" aria-label="Pause" fontIcon="stop"></mat-icon>
           </button>
         </ng-container>
         <ng-container mat-list-item>
-          <button mat-mini-fab color="primary">
+          <button mat-mini-fab color="primary" (click)="onSelectedArrowControls('next')">
             <mat-icon aria-hidden="false" aria-label="Siguiente" fontIcon="chevron_right"></mat-icon>
           </button>
         </ng-container>
