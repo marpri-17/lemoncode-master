@@ -27,7 +27,6 @@
       <div class="gallery--highlight--container">
         <div class="gallery--highlight--pic-wrapper">
           <img mat-card-image [src]="selected.picture" [alt]="selected.album + '-' + selected.band">
-
         </div>
         <div>
           <p>
@@ -46,13 +45,8 @@
               </button>
             </ng-container>
             <ng-container mat-list-item>
-              <button mat-mini-fab color="primary" [disabled]="isPlaying">
+              <button mat-mini-fab *ngIf="!isPlaying; else stopButton" color="primary" (click)="toggleIsPlaying()">
                 <mat-icon aria-hidden="false" aria-label="Play" fontIcon="play_arrow"></mat-icon>
-              </button>
-            </ng-container>
-            <ng-container mat-list-item>
-              <button mat-mini-fab color="primary" [disabled]="!isPlaying">
-                <mat-icon aria-hidden="false" aria-label="Pause" fontIcon="stop"></mat-icon>
               </button>
             </ng-container>
             <ng-container mat-list-item>
@@ -78,4 +72,10 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+</ng-template>
+
+<ng-template #stopButton>
+  <button mat-mini-fab color="primary">
+    <mat-icon aria-hidden="false" aria-label="Pause" fontIcon="stop" (click)="toggleIsPlaying()"></mat-icon>
+  </button>
 </ng-template>

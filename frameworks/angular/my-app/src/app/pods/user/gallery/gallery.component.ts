@@ -15,7 +15,7 @@ export class GalleryView implements OnInit, OnDestroy {
 
   public selected: IMusicGalleryItemViewModel;
 
-  public isPlaying: false;
+  public isPlaying = false;
 
   private spinnerTimeOut = 1000; // 3000;
 
@@ -63,6 +63,10 @@ export class GalleryView implements OnInit, OnDestroy {
         ? 0 // Go to first
         : selectedIndex + indexModifier;
     this.onSelectedImage(this.albums[modifiedIndex].id);
+  }
+
+  public toggleIsPlaying() {
+    this.isPlaying = !this.isPlaying;
   }
 
   private clearSelected() {
