@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MusicGalleryService } from './gallery.service';
 import { LogginService } from '../../../core/services/loggin.service';
 import { IMusicGalleryItemViewModel } from './gallery.model';
 import { delay } from 'rxjs';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'user-gallery',
@@ -10,6 +11,9 @@ import { delay } from 'rxjs';
   styleUrls: ['./gallery.scss'],
 })
 export class GalleryView implements OnInit, OnDestroy {
+  @ViewChild('selectedPic')
+  public selectedPic: ElementRef<HTMLImageElement>;
+
   public albums: IMusicGalleryItemViewModel[];
   public loading: boolean = true;
 
@@ -18,6 +22,9 @@ export class GalleryView implements OnInit, OnDestroy {
   public isPlaying = false;
 
   private spinnerTimeOut = 1000; // 3000;
+
+  private playerTimer = 2000;
+  private intervalPlayerId;
 
   constructor(
     private logginService: LogginService,
@@ -65,8 +72,47 @@ export class GalleryView implements OnInit, OnDestroy {
     this.onSelectedImage(this.albums[modifiedIndex].id);
   }
 
-  public toggleIsPlaying() {
+  public toggleIsPlaying(action: 'play' | 'stop') {
     this.isPlaying = !this.isPlaying;
+    action === 'play' ? this.setPlayerInterval() : this.clearPlayerInterval();
+  }
+
+  public onZoomIn() {
+    // Apply increment of 2% over img original width
+    const widthRatioIncrease = 0.2;
+    const calculatedIncreadesSizePx =
+      this.selectedPic.nativeElement.width * widthRatioIncrease +
+      this.selectedPic.nativeElement.width;
+    this.selectedPic.nativeElement.width = calculatedIncreadesSizePx;
+  }
+
+  public onZoomOut() {
+    console.log(this.selectedPic);
+    // Apply decrement of 2% over img original width
+    const widthRatioDecrease = 0.2;
+    const calculatedDrecreaseSizePx =
+      this.selectedPic.nativeElement.width -
+      this.selectedPic.nativeElement.width * widthRatioDecrease;
+    this.selectedPic.nativeElement.width = calculatedDrecreaseSizePx;
+  }
+
+  private setPlayerInterval() {
+    if (!this.selected) {
+      this.onSelectedImage(this.albums[0].id);
+    }
+    this.intervalPlayerId = window.setInterval(() => {
+      let nextItemIndex =
+        this.albums.findIndex((album) => album.id == this.selected.id) + 1;
+      if (nextItemIndex > this.albums.length - 1) {
+        nextItemIndex = 0;
+      }
+      const nextItem = this.albums[nextItemIndex];
+      this.onSelectedImage(nextItem.id);
+    }, this.playerTimer);
+  }
+
+  private clearPlayerInterval() {
+    window.clearInterval(this.intervalPlayerId);
   }
 
   private clearSelected() {
