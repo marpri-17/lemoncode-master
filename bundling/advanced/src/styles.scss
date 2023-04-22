@@ -1,19 +1,15 @@
-$text-color: teal;
-$padding-quote: 15px;
+/* Use components styles sheets here */
+@use "./core/scss/variables.scss" as vars;
 
-body {
-  font-family: "Nunito", sans-serif;
-  font-size: 18px;
+body,
+#root {
   min-height: 100vh;
+
+  #root > .MuiBox-root {
+    min-height: 100vh;
+  }
 }
 
-.my-title {
-  padding-left: $padding-quote;
-  color: $text-color;
-}
-
-#quote {
-  padding: $padding-quote;
-  display: flex;
-  flex-direction: column;
+code {
+  background-color: #eceff1;
 }

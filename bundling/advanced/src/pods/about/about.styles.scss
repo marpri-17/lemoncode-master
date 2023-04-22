@@ -1,0 +1,26 @@
+@use "core/scss/variables.scss" as vars;
+
+$about-bar-height: calc(100vh / 3);
+
+#about {
+  padding: vars.$padding-generic;
+
+  // Footer style
+  &-bar {
+    margin-top: 10px;
+    max-height: $about-bar-height;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      max-width: calc($about-bar-height - 2vh);
+    }
+  }
+
+  /* .about {
+    &-title {
+      color: vars.$text-color;
+    }
+  } */
+}

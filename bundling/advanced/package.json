@@ -4,24 +4,38 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p -l typecheck:dev start:dev",
-    "build": "rimraf ./dist && webpack --mode development",
-    "build:prod": "rimraf ./dist && webpack --mode production",
+    "start": "run-p -l typecheck:dev serve:dev",
+    "build": "rimraf ./dist && webpack --config ./config/webpack/dev.js",
+    "start:prod": "run-p -l typecheck:dev serve:prod",
+    "build:prod": "rimraf ./dist && webpack --config ./config/webpack/prod.js",
+    "serve:dev": " webpack serve --config ./config/webpack/dev.js",
+    "serve:prod": " webpack serve --config ./config/webpack/prod.js",
     "typecheck": "tsc --noEmit",
     "typecheck:dev": "npm run typecheck -- --watch",
-    "start:dev": " webpack serve --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf ./dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.15",
+    "axios": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
+    "@types/react": "^18.0.25",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "npm-run-all": "^4.1.5",
@@ -34,9 +48,5 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   }
 }

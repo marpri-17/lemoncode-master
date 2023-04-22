@@ -11,8 +11,18 @@
     "noLib": false,
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "@components": ["./components/*"],
+      "@assets": ["./assets/*"],
+      "@core": ["./core/*"],
+      "@layouts": ["./layouts/*"],
+      "@pods": ["./pods/*"],
+      "@scenes": ["./scenes/*"],
+      "@mocks": ["./mocks/*"]
+    }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./index.d.ts"],
   "exclude": ["node_modules"]
 }

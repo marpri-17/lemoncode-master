@@ -1,33 +1,38 @@
 import React from "react";
-import { useFilteredList } from "@pods/filtered-list/useFilteredList.hooks";
-import { useDebounce } from "use-debounce";
 
-export const OrganizationFilter: React.FC = () => {
-  const { organizationName, setOrganizationName } = useFilteredList();
-  const [filter, setFilter] = React.useState("");
-  const [debouncedFilter] = useDebounce(filter, 1000);
+interface Props {
+  organizationName: string;
+  setOrganizationName: (filter: string) => void;
+}
 
-  React.useEffect(() => {
-    setFilter(organizationName);
-  }, [organizationName]);
-
-  // Use debounce here. State and useEffect to fetch
-  React.useEffect(() => {
-    setOrganizationName(debouncedFilter);
-  }, [organizationName, debouncedFilter]);
+export const OrganizationFilter: React.FC<Props> = ({
+  organizationName,
+  setOrganizationName,
+}) => {
+  const handleFormSubmit = (event: React.BaseSyntheticEvent) => {
+    event.preventDefault();
+    const organizationName: HTMLInputElement = (
+      event.target as HTMLFormElement
+    ).querySelector("input#organizationName");
+    setOrganizationName(organizationName.value);
+  };
 
   return (
-    <form className="list-header-container">
+    <form
+      className="list-header-container"
+      style={{ paddingBottom: "1rem", paddingTop: "1rem" }}
+      onSubmit={handleFormSubmit}
+    >
       <input
+        id="organizationName"
         type="text"
         className="list-header-input"
         placeholder="Search organization"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-        onSubmit={(e) => e.preventDefault()}
+        defaultValue={organizationName}
       ></input>
-      <span>{filter}</span>
-      <span>{debouncedFilter}</span>
+      <button type="submit" className="search-button">
+        Buscar
+      </button>
     </form>
   );
 };
