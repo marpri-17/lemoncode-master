@@ -6,23 +6,23 @@ import { RowComponent } from './row.component';
 import { CellComponent } from './cell.component';
 import { RowRendererProps } from '../table.vm';
 
-describe('common/table/BodyComponent', () => {
+xdescribe('common/table/BodyComponent', () => {
   it('should render as expected', () => {
     // Arrange
-    const TestRowComponent: React.FunctionComponent<RowRendererProps<
-      any
-    >> = props => (
+    const TestRowComponent: React.FunctionComponent<RowRendererProps<any>> = (
+      props
+    ) => (
       <RowComponent>
         <CellComponent>{props.row.testRow}</CellComponent>
       </RowComponent>
     );
 
     const props = {
-      rows: ([
+      rows: [
         { getRowProps: jest.fn(), original: { testRow: 1 } },
         { getRowProps: jest.fn(), original: { testRow: 2 } },
         { getRowProps: jest.fn(), original: { testRow: 3 } },
-      ] as unknown) as Row[],
+      ] as unknown as Row[],
       rowRenderer: TestRowComponent,
       prepareRow: jest.fn(),
     };

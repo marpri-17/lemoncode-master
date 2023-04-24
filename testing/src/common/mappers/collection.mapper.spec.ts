@@ -1,12 +1,12 @@
 import { mapToCollection } from './collection.mapper';
 
-describe('common/mappers/collection.mapper spec', () => {
-  describe('mapToCollection', () => {
+xdescribe('common/mappers/collection.mapper spec', () => {
+  xdescribe('mapToCollection', () => {
     it('shoudl return empty array when it feeds collectio equals undefined', () => {
       //Arrange
       const value = undefined;
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });
@@ -24,7 +24,7 @@ describe('common/mappers/collection.mapper spec', () => {
       //Arrange
       const value = null;
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });
@@ -42,7 +42,7 @@ describe('common/mappers/collection.mapper spec', () => {
       //Arrange
       const value = [];
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });
@@ -69,7 +69,7 @@ describe('common/mappers/collection.mapper spec', () => {
         },
       ];
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });

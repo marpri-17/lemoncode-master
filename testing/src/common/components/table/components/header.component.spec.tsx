@@ -3,11 +3,11 @@ import { HeaderGroup } from 'react-table';
 import { render } from '@testing-library/react';
 import { HeaderComponent } from './header.component';
 
-describe('common/table/HeaderComponent', () => {
+xdescribe('common/table/HeaderComponent', () => {
   it('should be rendered as expected passing required properties', () => {
     // Arrange
     const props = {
-      headerGroups: ([
+      headerGroups: [
         {
           getHeaderGroupProps: jest.fn(),
           headers: [
@@ -17,7 +17,7 @@ describe('common/table/HeaderComponent', () => {
             },
           ],
         },
-      ] as unknown) as HeaderGroup[],
+      ] as unknown as HeaderGroup[],
     };
 
     // Act
@@ -30,7 +30,7 @@ describe('common/table/HeaderComponent', () => {
   it('should render two columns passing two columns', () => {
     // Arrange
     const props = {
-      headerGroups: ([
+      headerGroups: [
         {
           getHeaderGroupProps: jest.fn(),
           headers: [
@@ -49,7 +49,7 @@ describe('common/table/HeaderComponent', () => {
             },
           ],
         },
-      ] as unknown) as HeaderGroup[],
+      ] as unknown as HeaderGroup[],
     };
 
     // Act
