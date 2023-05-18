@@ -11,6 +11,10 @@ import { ProfileView } from './profile/profile.component';
 import { UserMainView } from './user-main/user-main.component';
 import { GalleryView } from './gallery/gallery.component';
 import { CRUDView } from './crud/crud.component';
+import { AppDirectivesModule } from '../../core/directives/directives.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -22,6 +26,10 @@ import { CRUDView } from './crud/crud.component';
     MatGridListModule,
     MatIconModule,
     MatCardModule,
+    AppDirectivesModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
   ],
   exports: [],
   declarations: [ProfileView, UserMainView, GalleryView, CRUDView],

@@ -17,11 +17,22 @@ export class GalleryView implements OnInit, OnDestroy {
   public albums: IMusicGalleryItemViewModel[];
   public loading: boolean = true;
 
+  public thumbnailPagination = {
+    start: 0,
+    end: 3,
+    total: 0,
+  };
+
   public selected: IMusicGalleryItemViewModel;
 
   public isPlaying = false;
 
+  public initialFeaturedRotation: number = 0;
+  public rotationSteps: number = 10;
+
   private spinnerTimeOut = 1000; // 3000;
+
+  private thumbnailItemsPerPage = 3;
 
   private playerTimer = 2000;
   private intervalPlayerId;
@@ -38,6 +49,9 @@ export class GalleryView implements OnInit, OnDestroy {
       .subscribe({
         next: (albums) => {
           this.albums = albums;
+          this.selected = albums[0];
+          albums[0].selected = true;
+          this.thumbnailPagination.total = albums.length;
         },
         error: () => {},
         complete: () => (this.loading = false),
@@ -51,10 +65,22 @@ export class GalleryView implements OnInit, OnDestroy {
 
   public onSelectedImage(albumId: number) {
     this.clearSelected();
-    const selectedAlbum = this.albums.find((album) => album.id === +albumId);
-    if (selectedAlbum) {
+    const selectedIndex = this.albums.findIndex(
+      (album) => album.id === +albumId
+    );
+    if (selectedIndex !== -1) {
+      const selectedAlbum = this.albums[selectedIndex];
       this.selected = selectedAlbum;
       selectedAlbum.selected = true;
+    }
+  }
+
+  private handlePaginationOnChangeSelected(index: number) {
+    if (index === 0) {
+      this.thumbnailPagination.start = 0;
+      this.thumbnailPagination.end = this.thumbnailItemsPerPage;
+    } else if (index > this.thumbnailPagination.end - 1) {
+      this.thumbnailPageDown();
     }
   }
 
@@ -95,11 +121,34 @@ export class GalleryView implements OnInit, OnDestroy {
       this.selectedPic.nativeElement.width * widthRatioDecrease;
     this.selectedPic.nativeElement.width = calculatedDrecreaseSizePx;
   }
+  // TODO - slicer pagination can be component
+  public thumbnailPageUp() {
+    let newEnd = this.thumbnailPagination.end - this.thumbnailItemsPerPage;
+    if (newEnd < 3) {
+      newEnd = 3;
+    }
+    let newStart = this.thumbnailPagination.start - this.thumbnailItemsPerPage;
+    if (newStart < 0) {
+      newStart = 0;
+    }
+    this.thumbnailPagination.start = newStart;
+    this.thumbnailPagination.end = newEnd;
+  }
+
+  public thumbnailPageDown() {
+    let newStart = this.thumbnailPagination.start + this.thumbnailItemsPerPage;
+    if (newStart > this.thumbnailPagination.total - 3) {
+      newStart = this.thumbnailPagination.total - 3;
+    }
+    let newEnd = this.thumbnailPagination.end + this.thumbnailItemsPerPage;
+    if (newEnd > this.thumbnailPagination.total) {
+      newEnd = this.thumbnailPagination.total;
+    }
+    this.thumbnailPagination.start = newStart;
+    this.thumbnailPagination.end = newEnd;
+  }
 
   private setPlayerInterval() {
-    if (!this.selected) {
-      this.onSelectedImage(this.albums[0].id);
-    }
     this.intervalPlayerId = window.setInterval(() => {
       let nextItemIndex =
         this.albums.findIndex((album) => album.id == this.selected.id) + 1;
@@ -107,6 +156,7 @@ export class GalleryView implements OnInit, OnDestroy {
         nextItemIndex = 0;
       }
       const nextItem = this.albums[nextItemIndex];
+      this.handlePaginationOnChangeSelected(nextItemIndex);
       this.onSelectedImage(nextItem.id);
     }, this.playerTimer);
   }
