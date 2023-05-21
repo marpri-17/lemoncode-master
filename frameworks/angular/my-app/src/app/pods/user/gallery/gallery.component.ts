@@ -27,7 +27,6 @@ export class GalleryView implements OnInit, OnDestroy {
 
   public isPlaying = false;
 
-  public initialFeaturedRotation: number = 0;
   public rotationSteps: number = 10;
 
   private spinnerTimeOut = 1000; // 3000;
@@ -43,19 +42,7 @@ export class GalleryView implements OnInit, OnDestroy {
   ) {}
 
   public ngOnInit() {
-    this.musicService
-      .getUserFavoritesAlbums(this.logginService.getUsername())
-      .pipe(delay(this.spinnerTimeOut))
-      .subscribe({
-        next: (albums) => {
-          this.albums = albums;
-          this.selected = albums[0];
-          albums[0].selected = true;
-          this.thumbnailPagination.total = albums.length;
-        },
-        error: () => {},
-        complete: () => (this.loading = false),
-      });
+    this.getUserAlbumList();
   }
 
   public ngOnDestroy(): void {
@@ -72,15 +59,6 @@ export class GalleryView implements OnInit, OnDestroy {
       const selectedAlbum = this.albums[selectedIndex];
       this.selected = selectedAlbum;
       selectedAlbum.selected = true;
-    }
-  }
-
-  private handlePaginationOnChangeSelected(index: number) {
-    if (index === 0) {
-      this.thumbnailPagination.start = 0;
-      this.thumbnailPagination.end = this.thumbnailItemsPerPage;
-    } else if (index > this.thumbnailPagination.end - 1) {
-      this.thumbnailPageDown();
     }
   }
 
@@ -121,6 +99,7 @@ export class GalleryView implements OnInit, OnDestroy {
       this.selectedPic.nativeElement.width * widthRatioDecrease;
     this.selectedPic.nativeElement.width = calculatedDrecreaseSizePx;
   }
+
   // TODO - slicer pagination can be component
   public thumbnailPageUp() {
     let newEnd = this.thumbnailPagination.end - this.thumbnailItemsPerPage;
@@ -170,5 +149,30 @@ export class GalleryView implements OnInit, OnDestroy {
       this.albums.forEach((album) => (album.selected = false));
     }
     this.selected = null;
+  }
+
+  private handlePaginationOnChangeSelected(index: number) {
+    if (index === 0) {
+      this.thumbnailPagination.start = 0;
+      this.thumbnailPagination.end = this.thumbnailItemsPerPage;
+    } else if (index > this.thumbnailPagination.end - 1) {
+      this.thumbnailPageDown();
+    }
+  }
+
+  private getUserAlbumList() {
+    this.musicService
+      .getUserFavoritesAlbums(this.logginService.getUsername())
+      .pipe(delay(this.spinnerTimeOut))
+      .subscribe({
+        next: (albums) => {
+          this.albums = albums;
+          this.selected = albums[0];
+          albums[0].selected = true;
+          this.thumbnailPagination.total = albums.length;
+        },
+        error: () => {},
+        complete: () => (this.loading = false),
+      });
   }
 }

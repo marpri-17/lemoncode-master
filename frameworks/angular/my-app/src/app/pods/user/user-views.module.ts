@@ -15,6 +15,7 @@ import { AppDirectivesModule } from '../../core/directives/directives.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    MatTooltipModule,
   ],
   exports: [],
   declarations: [ProfileView, UserMainView, GalleryView, CRUDView],

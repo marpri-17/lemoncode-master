@@ -34,19 +34,16 @@
     </div>
     <div class="gallery--featured">
       <div class="generic-padding-y">
-        <mat-form-field class=" generic-padding-x">
-          <mat-label>Initial rotation</mat-label>
-          <input matInput type="number" [(ngModel)]="initialFeaturedRotation">
-        </mat-form-field>
         <mat-form-field class="generic-padding-x">
-          <mat-label>Rotation steps</mat-label>
+          <mat-label>Rotation image steps</mat-label>
           <input matInput type="number" [(ngModel)]="rotationSteps">
         </mat-form-field>
       </div>
       <!-- FEATURED -->
       <ng-container *ngIf="selected; else albumCoverFallBack">
         <div class="gallery--featured-pic-wrapper">
-          <img [rotate]="initialFeaturedRotation.toString()" [steps]="rotationSteps.toString()" #selectedPic
+          <img #selectedPic matTooltip="Click for rotate the image. Click + shift rotate it opposite way"
+            matTooltipPosition="left" rotate="0" [steps]="rotationSteps ? rotationSteps.toString() : '10'"
             [src]="selected.picture" [alt]="selected.album + '-' + selected.band" class="gallery--featured-pic">
         </div>
         <div>
