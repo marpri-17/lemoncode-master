@@ -40,8 +40,8 @@ frameworks/react/react_advanced/dist/**
 frameworks/angular/my-app/node_modules/**
 frameworks/angular/my-app/dist/**
 frameworks/angular/my-app/.vscode/**
-frameworks/vue/node_modules/**
-frameworks/vue/dist/**
+frameworks/vue/vue-app/node_modules/**
+frameworks/vue/vue-app/dist/**
 
 testing/node_modules/**
 
