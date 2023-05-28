@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CharacterEntityVm } from './characters-collection.vm';
-import { CharacterCard } from './components/characters-card.component';
+import { CharacterCard } from '../../common/components';
 import * as classes from './characters-collection.styles';
 
 interface Props {

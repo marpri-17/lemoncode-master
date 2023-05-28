@@ -3,14 +3,9 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar/Avatar';
-import IconButton from '@material-ui/core/IconButton/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 import * as classes from './characters-card.styles';
-import { CharacterEntityVm } from '../characters-collection.vm';
+import { CharacterEntityVm } from '../../../pods/characters-collection/characters-collection.vm';
 
 interface Props {
   character: CharacterEntityVm;
