@@ -1,6 +1,9 @@
-import { Character, CharacterEntityVm } from '../../common/models';
+import { CharacterEntityVm, Character } from '../../common/models';
 
-export const mapFromApiToVm = (character: Character): CharacterEntityVm => ({
+export const mapToCustomCharacterViewModel = (
+  character: Character
+): CharacterEntityVm => ({
+  //TODO - types and mappers
   id: character.id,
   /* picture: `${process.env.BASE_PICTURES_URL}/${hotel.thumbNailUrl}`, */
   picture: character.image,

@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { Character, Info } from './characters-collection.api-model';
+import { Character, Info } from '../../../common/models';
 
 const baseUrl = 'https://rickandmortyapi.com/api/character/';
 

@@ -1,3 +1,7 @@
+export interface CharacterViewModel extends Character {
+  bestSentences: string[];
+}
+
 // JS client Rick&Morty https://github.com/afuh/rick-and-morty-api-node/blob/master/src/interfaces.ts
 
 export interface CharacterLocation {

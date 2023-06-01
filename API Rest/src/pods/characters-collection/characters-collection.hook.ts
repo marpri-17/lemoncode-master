@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { CharacterEntityVm } from './characters-collection.vm';
+import { CharacterEntityVm } from '../../common/models';
 import {
   getCharacterCollectionAPIRest,
   getCharacterCollectionAPIRestAxios,
 } from './api';
 import { mapFromApiToVm } from './characters-collection.mapper';
-import { mapToCollection } from 'common/mappers';
+import { mapToCollection } from '../../common/mappers';
 
 export const useCharacterCollection = () => {
   const [characterCollection, setCharactersCollection] = React.useState<

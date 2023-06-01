@@ -1,18 +1,25 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import { linkRoutes } from 'core/router';
-// import { deleteHotel } from './api';
-import { useCharacterCollection } from './characters-collection.hook';
-import { CharactersCollectionComponent } from './characters-collection.component';
+import { useCustomCharacters } from './custom-characters.hook';
+import { CustomCharactersCollectionComponent } from './custom-characters-collection.component';
 
-export const CharacterCollectionContainer = () => {
+export const CustomCharacterCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } =
-    useCharacterCollection();
+    useCustomCharacters();
   const history = useHistory();
 
   React.useEffect(() => {
     loadCharacterCollection();
   }, []);
+
+  /*   const handleCreateHotel = () => {
+    history.push(linkRoutes.createHotel);
+  };
+
+  const handleEdit = (id: string) => {
+    history.push(linkRoutes.editHotel(id));
+  }; */
 
   const handleClick = (id: number) => {
     history.push(linkRoutes.character(id.toString()));
@@ -24,7 +31,7 @@ export const CharacterCollectionContainer = () => {
   }; */
 
   return (
-    <CharactersCollectionComponent
+    <CustomCharactersCollectionComponent
       charactersCollection={characterCollection}
       onCharactersClick={handleClick}
     />

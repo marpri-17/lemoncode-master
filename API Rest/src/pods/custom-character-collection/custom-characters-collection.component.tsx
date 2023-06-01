@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { CharacterEntityVm } from '../../common/models';
 import { CharacterCard } from '../../common/components';
-import * as classes from './characters-collection.styles';
+import * as classes from './custom-characters.styles';
 
 interface Props {
   charactersCollection: CharacterEntityVm[];
   onCharactersClick: (id: number) => void;
 }
 
-export const CharactersCollectionComponent: React.FunctionComponent<Props> = (
-  props
-) => {
+export const CustomCharactersCollectionComponent: React.FunctionComponent<
+  Props
+> = (props) => {
   const { charactersCollection, onCharactersClick } = props;
 
   return (
