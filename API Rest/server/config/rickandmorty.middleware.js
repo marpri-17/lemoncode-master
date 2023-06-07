@@ -1,9 +1,4 @@
-const rickAndMortyMiddleware = (req, res, next) => {
-  if (req.method === 'GET') {
-    console.log(req)
-    console.log(req.body)
-  }
-
+const characterMiddleware = (req, res, next) => {
   if (req.method === 'POST') {
     req.body = {
       ...req.body,
@@ -11,4 +6,12 @@ const rickAndMortyMiddleware = (req, res, next) => {
     };
   }
   next();
+};
+
+module.exports = (req, res, next) => {
+  if (req.path === '/characters') {
+    characterMiddleware(req, res, next);
+  } else {
+    next();
+  }
 };

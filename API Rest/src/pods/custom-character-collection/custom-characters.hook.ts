@@ -5,19 +5,21 @@ import { mapToCustomCharacterViewModel } from './custom-characters.mapper';
 import { mapToCollection } from '../../common/mappers';
 
 export const useCustomCharacters = () => {
-  const [characterCollection, setCharactersCollection] = React.useState<
-    CharacterEntityVm[]
-  >([]);
+  const [customCharacterCollection, setCustomCharactersCollection] =
+    React.useState<CharacterEntityVm[]>([]);
 
-  const loadCharacterCollection = async () => {
+  const loadCustomCharacterCollection = async () => {
     // AXIOS
     const characterCollectionInfo =
       await getMockedCharacterCollectionAPIRestAxios();
     const characterCollection = characterCollectionInfo.results;
-    setCharactersCollection(
+    setCustomCharactersCollection(
       mapToCollection(characterCollection, mapToCustomCharacterViewModel)
     );
   };
 
-  return { characterCollection, loadCharacterCollection };
+  return {
+    customCharacterCollection: customCharacterCollection,
+    loadCustomCharacterCollection,
+  };
 };

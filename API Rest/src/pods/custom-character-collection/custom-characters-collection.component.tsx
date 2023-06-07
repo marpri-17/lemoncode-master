@@ -15,10 +15,6 @@ export const CustomCharactersCollectionComponent: React.FunctionComponent<
 
   return (
     <div className={classes.root}>
-      {/*   <Button variant="contained" color="primary" onClick={onCreateHotel}>
-        Add hotel
-      </Button> */}
-
       <ul className={classes.list}>
         {charactersCollection.map((character) => (
           <li

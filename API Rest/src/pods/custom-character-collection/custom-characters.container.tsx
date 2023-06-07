@@ -5,34 +5,21 @@ import { useCustomCharacters } from './custom-characters.hook';
 import { CustomCharactersCollectionComponent } from './custom-characters-collection.component';
 
 export const CustomCharacterCollectionContainer = () => {
-  const { characterCollection, loadCharacterCollection } =
+  const { customCharacterCollection, loadCustomCharacterCollection } =
     useCustomCharacters();
   const history = useHistory();
 
   React.useEffect(() => {
-    loadCharacterCollection();
+    loadCustomCharacterCollection();
   }, []);
-
-  /*   const handleCreateHotel = () => {
-    history.push(linkRoutes.createHotel);
-  };
-
-  const handleEdit = (id: string) => {
-    history.push(linkRoutes.editHotel(id));
-  }; */
 
   const handleClick = (id: number) => {
     history.push(linkRoutes.character(id.toString()));
   };
 
-  /*   const handleDelete = async (id: string) => {
-    await deleteHotel(id);
-    loadHotelCollection();
-  }; */
-
   return (
     <CustomCharactersCollectionComponent
-      charactersCollection={characterCollection}
+      charactersCollection={customCharacterCollection}
       onCharactersClick={handleClick}
     />
   );

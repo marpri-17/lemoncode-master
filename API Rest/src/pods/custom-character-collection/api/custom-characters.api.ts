@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { Character, Info } from './custom-characters-model';
 
 const jsonServerPort = 'localhost:3000';
-const baseUrl = `http://${jsonServerPort}/api/character/`;
+const baseUrl = `http://${jsonServerPort}/api/characters/`;
 
 // AXIOS
 export const getMockedCharacterCollectionAPIRestAxios = async () => {
