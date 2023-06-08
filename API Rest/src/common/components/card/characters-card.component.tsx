@@ -5,19 +5,18 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import * as classes from './characters-card.styles';
-import { CharacterEntityVm } from '../../../pods/characters-collection/characters-collection.vm';
+import { CharacterEntityVm } from '../../models';
 
 interface Props {
   character: CharacterEntityVm;
-  // onEdit: (id: string) => void;
-  // onDelete: (id: string) => void;
+  onClick: (event: React.BaseSyntheticEvent) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const { character } = props;
+  const { character, onClick } = props;
 
   return (
-    <Card>
+    <Card onClick={onClick}>
       <CardHeader title={character.name} subheader={character.location.name} />
       <CardContent>
         <div className={classes.content}>
