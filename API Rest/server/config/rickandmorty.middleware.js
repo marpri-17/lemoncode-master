@@ -1,9 +1,12 @@
 const characterMiddleware = (req, res, next) => {
+  console.log(req)
+  // console.log(res)
   if (req.method === 'POST') {
-    req.body = {
-      ...req.body,
-      thumbNailUrl: '/thumbnails/new-hotel.jpg',
-    };
+    // debugger;
+    /*    req.body = {
+         ...req.body,
+         thumbNailUrl: '/thumbnails/new-hotel.jpg',
+       }; */
   }
   next();
 };

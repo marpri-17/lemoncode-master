@@ -1,20 +1,9 @@
 import React from 'react';
-import {
-  TextFieldComponent,
-  SelectComponent,
-  RatingComponent,
-} from 'common/components';
-import { Button, Grid, Typography } from '@material-ui/core';
-// import { formValidation } from './hotel.validations';
-// import { Hotel } from './hotel.vm';
-import { Character } from './character.vm';
-import * as classes from './character.styles';
-// import { Lookup } from 'common/models';
+import { Grid, Typography } from '@material-ui/core';
+import { CharacterEntityVm } from '../../common/models';
 
 interface Props {
-  character: Character;
-  // cities: Lookup[];
-  // onSave: (hotel: Hotel) => void;
+  character: CharacterEntityVm;
 }
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
@@ -22,7 +11,7 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Grid container spacing={2}>
-      <img src={character.picture} alt={character.name} />
+      <img src={character.image} alt={character.name} />
       <Typography variant="h4">{character.name}</Typography>
     </Grid>
   );

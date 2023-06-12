@@ -21,11 +21,11 @@ export const CharactersCollectionComponent: React.FunctionComponent<Props> = (
 
       <ul className={classes.list}>
         {charactersCollection.map((character) => (
-          <li
-            key={character.id}
-            onClick={() => onCharactersClick(character.id)}
-          >
-            <CharacterCard character={character} />
+          <li key={character.id}>
+            <CharacterCard
+              character={character}
+              onClick={() => onCharactersClick(character.id)}
+            />
           </li>
         ))}
       </ul>

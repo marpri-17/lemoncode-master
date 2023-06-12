@@ -1,11 +1,11 @@
-export interface CharacterEntityVm {
-  id: number;
-  picture: string;
-  name: string;
-  status: 'Dead' | 'Alive' | 'unknown';
-  species: string;
-  gender: string;
-  location: CharacterLocation;
+export interface CharacterEntityVm extends Character {}
+
+export interface CustomCharacterViewModel extends CharacterEntityVm {
+  bestSentences: string[];
+}
+
+export interface CustomCharacterDTO extends Character {
+  sentences: string[];
 }
 
 // JS client Rick&Morty https://github.com/afuh/rick-and-morty-api-node/blob/master/src/interfaces.ts

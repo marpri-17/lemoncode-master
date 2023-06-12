@@ -1,12 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import * as api from './api';
-import { Character, createEmptyCharacter } from './character.vm';
-import { mapCharacterFromApiToVm } from './character.mappers';
+import {
+  mapCharacterFromApiToVm,
+  createEmptyCharacter,
+} from './character.mappers';
 import { CharacterComponent } from './character.component';
+import { CharacterEntityVm } from 'common/models';
+import * as api from './api';
 
 export const CharacterContainer: React.FunctionComponent = (props) => {
-  const [character, setCharacter] = React.useState<Character>(
+  const [character, setCharacter] = React.useState<CharacterEntityVm>(
     createEmptyCharacter()
   );
 
@@ -27,18 +30,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     if (id) {
       handleLoadCharacter();
     }
-    // handleLoadCityCollection();
   }, []);
-
-  /*   const handleSave = async (hotel: Hotel) => {
-    const apiHotel = mapHotelFromVmToApi(hotel);
-    const success = await api.saveHotel(apiHotel);
-    if (success) {
-      history.goBack();
-    } else {
-      alert('Error on save hotel');
-    }
-  }; */
 
   return <CharacterComponent character={character} />;
 };

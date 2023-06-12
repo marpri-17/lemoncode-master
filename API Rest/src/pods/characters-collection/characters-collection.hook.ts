@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { CharacterEntityVm } from '../../common/models';
-import {
-  getCharacterCollectionAPIRest,
-  getCharacterCollectionAPIRestAxios,
-} from './api';
-import { mapFromApiToVm } from './characters-collection.mapper';
+import { getCharacterCollectionAPIRest } from './api';
+import { mapCharacterFromApiToVm } from './characters-collection.mapper';
 import { mapToCollection } from '../../common/mappers';
 
 export const useCharacterCollection = () => {
@@ -15,14 +12,14 @@ export const useCharacterCollection = () => {
   const loadCharacterCollection = async () => {
     // FETCH
     getCharacterCollectionAPIRest().then(({ results }) =>
-      setCharactersCollection(mapToCollection(results, mapFromApiToVm))
+      setCharactersCollection(mapToCollection(results, mapCharacterFromApiToVm))
     );
 
     // AXIOS
     /*     const characterCollectionInfo = await getCharacterCollectionAPIRestAxios();
     const characterCollection = characterCollectionInfo.results;
     setCharactersCollection(
-      mapToCollection(characterCollection, mapFromApiToVm)
+      mapToCollection(characterCollection, mapCharacterFromApiToVm)
     ); */
   };
 

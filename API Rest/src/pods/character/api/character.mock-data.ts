@@ -1,5 +1,4 @@
-import { Character } from './character.api-model';
-import { Lookup } from 'common/models';
+import { Character } from '../../../common/models';
 
 export const mockCharacter: Character = {
   id: 1,
@@ -73,14 +72,3 @@ export const mockCharacter: Character = {
   url: 'https://rickandmortyapi.com/api/character/1',
   created: '2017-11-04T18:48:46.250Z',
 };
-
-export const mockCities: Lookup[] = [
-  {
-    id: 'Seattle',
-    name: 'Seattle',
-  },
-  {
-    id: 'New York',
-    name: 'New York',
-  },
-];
