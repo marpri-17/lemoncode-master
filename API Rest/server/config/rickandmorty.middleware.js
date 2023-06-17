@@ -1,6 +1,4 @@
 const characterMiddleware = (req, res, next) => {
-  console.log(req)
-  // console.log(res)
   if (req.method === 'POST') {
     // debugger;
     /*    req.body = {

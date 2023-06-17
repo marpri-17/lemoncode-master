@@ -12,7 +12,7 @@ export const useCustomCharacters = () => {
     // AXIOS
     const characterCollectionInfo =
       await getMockedCharacterCollectionAPIRestAxios();
-    const characterCollection = characterCollectionInfo.results;
+    const characterCollection = characterCollectionInfo;
     setCustomCharactersCollection(
       mapToCollection(characterCollection, mapCharacterDTOtoCustomVM)
     );

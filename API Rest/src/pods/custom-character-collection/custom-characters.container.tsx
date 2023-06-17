@@ -14,7 +14,7 @@ export const CustomCharacterCollectionContainer = () => {
   }, []);
 
   const handleClick = (id: number) => {
-    history.push(linkRoutes.character(id.toString()));
+    history.push(linkRoutes.customCharacter(id.toString()));
   };
 
   return (

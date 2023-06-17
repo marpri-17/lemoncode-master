@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { AppLayout } from 'layouts';
-import { CustomCharacterCollectionContainer } from '../pods/custom-character-collection';
+import { CustomCharacterComponent } from 'pods/custom-character';
 
 export const CustomCharacterScene = () => (
   <AppLayout>
-    <CustomCharacterCollectionContainer />
+    <CustomCharacterComponent />
   </AppLayout>
 );

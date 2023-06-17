@@ -2,12 +2,21 @@ import Axios from 'axios';
 import { Info, CustomCharacterDTO } from '../../../common/models';
 
 const jsonServerPort = 'localhost:3000';
-const baseUrl = `http://${jsonServerPort}/api/characters/`;
+const baseUrl = `http://${jsonServerPort}/characters`;
 
 // AXIOS
 export const getMockedCharacterCollectionAPIRestAxios = async () => {
-  const axiosCharacterResponse = await Axios.get<Info<CustomCharacterDTO[]>>(
+  const axiosCharacterResponse = await Axios.get<CustomCharacterDTO[]>(
     `${baseUrl}`
+  );
+  if (axiosCharacterResponse.status === 200) {
+    return axiosCharacterResponse.data;
+  }
+};
+
+export const getMockedCharacterAPIRestAxios = async (id: string) => {
+  const axiosCharacterResponse = await Axios.get<CustomCharacterDTO>(
+    `${baseUrl}/${id}`
   );
   if (axiosCharacterResponse.status === 200) {
     return axiosCharacterResponse.data;

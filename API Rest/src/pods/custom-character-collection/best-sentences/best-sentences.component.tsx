@@ -33,7 +33,7 @@ export const BestSentencesComponent: React.FunctionComponent<Props> = (
     const initialValues = {};
     initialValues[getInputName(characterId)] = '';
     formik.initialValues = initialValues;
-  }, []);
+  }, [characterId]);
 
   const wrapperSubmitForm = (event) => {
     event.preventDefault();
@@ -50,7 +50,6 @@ export const BestSentencesComponent: React.FunctionComponent<Props> = (
           label={customLabel}
           name={getInputName(characterId)}
           id={getInputName(characterId)}
-          value={formik.values[getInputName(characterId)]}
           onChange={formik.handleChange}
         ></TextFieldComponent>
         <Button

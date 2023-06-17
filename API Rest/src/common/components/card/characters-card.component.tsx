@@ -9,14 +9,18 @@ import { CharacterEntityVm } from '../../models';
 
 interface Props {
   character: CharacterEntityVm;
-  onClick: (event: React.BaseSyntheticEvent) => void;
+  onClick?: (event: React.BaseSyntheticEvent) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
   const { character, onClick } = props;
 
+  const defaultOnClick = (event: React.BaseSyntheticEvent) => {
+    console.log('DEFAULT ON CLICK CARD EVENT: ', event);
+  };
+
   return (
-    <Card onClick={onClick}>
+    <Card onClick={onClick ?? defaultOnClick}>
       <CardHeader title={character.name} subheader={character.location.name} />
       <CardContent>
         <div className={classes.content}>

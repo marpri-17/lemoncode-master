@@ -4,8 +4,9 @@ import { switchRoutes } from './routes';
 import {
   CharacterCollectionScene,
   CharacterScene,
-  CustomCharacterScene,
+  CustomCharacterCollectionScene,
 } from 'scenes';
+import { CustomCharacterScene } from 'scenes/custom-character.scene';
 
 export const RouterComponent: React.FunctionComponent = () => {
   return (
@@ -24,6 +25,11 @@ export const RouterComponent: React.FunctionComponent = () => {
         <Route
           exact={true}
           path={switchRoutes.customCollection}
+          component={CustomCharacterCollectionScene}
+        />
+        <Route
+          exact={true}
+          path={switchRoutes.customCharacter}
           component={CustomCharacterScene}
         />
       </Switch>
