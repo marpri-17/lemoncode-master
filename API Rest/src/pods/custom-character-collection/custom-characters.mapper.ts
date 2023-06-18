@@ -23,10 +23,14 @@ export const mapCharacterDTOtoCustomVM = (
 
 export const mapCustomCharacterVMtoDTO = (
   character: CustomCharacterViewModel
-): CustomCharacterDTO => ({
-  ...character,
-  sentences: [...character.bestSentences],
-});
+): CustomCharacterDTO => {
+  const sentences = [...character.bestSentences];
+  delete character.bestSentences;
+  return {
+    ...character,
+    sentences,
+  };
+};
 
 const getGenderTypes = (
   gender: string

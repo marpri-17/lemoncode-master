@@ -10,10 +10,11 @@ import { CharacterEntityVm } from '../../models';
 interface Props {
   character: CharacterEntityVm;
   onClick?: (event: React.BaseSyntheticEvent) => void;
+  //  children?: React.ReactNode;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const { character, onClick } = props;
+  const { character, onClick, children } = props;
 
   const defaultOnClick = (event: React.BaseSyntheticEvent) => {
     console.log('DEFAULT ON CLICK CARD EVENT: ', event);
@@ -25,6 +26,7 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
       <CardContent>
         <div className={classes.content}>
           <CardMedia
+            component="div"
             image={character.image}
             title={character.name}
             style={{ height: 0, paddingTop: '56.25%' }}
@@ -33,15 +35,8 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
             Status: {character.status}
           </Typography>
         </div>
+        {children ? children : null}
       </CardContent>
-      {/* <CardActions>
-        <IconButton onClick={() => onEdit(hotel.id)}>
-          <EditIcon />
-        </IconButton>
-        <IconButton onClick={() => onDelete(hotel.id)}>
-          <DeleteIcon />
-        </IconButton>
-      </CardActions> */}
     </Card>
   );
 };

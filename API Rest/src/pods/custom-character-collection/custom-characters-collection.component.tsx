@@ -1,44 +1,23 @@
 import * as React from 'react';
 import { CustomCharacterViewModel } from '../../common/models';
 import { CharacterCard } from '../../common/components';
-import * as classes from './custom-characters.styles';
 import { BestSentencesComponent } from './best-sentences/best-sentences.component';
-import { useBestSentencesHook } from './best-sentences/best-sentences.hook';
+import * as classes from './custom-characters.styles';
 
 interface Props {
   charactersCollection: CustomCharacterViewModel[];
   onCharactersClick: (id: number) => void;
+  onSubmit: (values: any) => void;
 }
 
 export const CustomCharactersCollectionComponent: React.FunctionComponent<
   Props
 > = (props) => {
-  const { charactersCollection, onCharactersClick } = props;
-
-  const { saveCharacterSentence } = useBestSentencesHook();
+  const { charactersCollection, onCharactersClick, onSubmit } = props;
 
   const navigateToDetail = (event: React.BaseSyntheticEvent, characterId) => {
     event.preventDefault();
     onCharactersClick(characterId);
-  };
-
-  const onSubmitSentence = (values) => {
-    const characterId =
-      Object.keys(values)[0].split('-')[
-        Object.keys(values)[0].split('-').length - 1
-      ];
-    const character = charactersCollection.find(
-      (char) => char.id.toString() === characterId
-    );
-    const sentences = [
-      ...character.bestSentences,
-      ...[values[Object.keys(values)[0]]],
-    ];
-    const updateCharacter: CustomCharacterViewModel = {
-      ...character,
-      bestSentences: [...sentences],
-    };
-    saveCharacterSentence(updateCharacter);
   };
 
   return (
@@ -54,7 +33,7 @@ export const CustomCharactersCollectionComponent: React.FunctionComponent<
               <BestSentencesComponent
                 characterId={character.id}
                 characterName={character.name}
-                onSubmit={onSubmitSentence}
+                onSubmit={onSubmit}
               />
             </li>
           );

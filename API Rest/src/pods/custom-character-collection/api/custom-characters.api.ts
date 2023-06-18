@@ -24,8 +24,8 @@ export const getMockedCharacterAPIRestAxios = async (id: string) => {
 };
 
 export const saveBestSentences = async (character: CustomCharacterDTO) => {
-  const sentSentence = await Axios.post(
-    `${baseUrl}${character.id}/`,
+  const sentSentence = await Axios.put(
+    `${baseUrl}/${character.id}/`,
     character,
     {
       headers: { 'Content-Type': 'application/json' },

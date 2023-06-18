@@ -5,6 +5,7 @@ import {
 } from '../../../common/models';
 
 import { mapCustomCharacterVMtoDTO } from '../custom-characters.mapper';
+import { saveBestSentences } from '../api';
 
 export const useBestSentencesHook = () => {
   const [character, setCharacter] = React.useState<CustomCharacterDTO>(null);
@@ -19,6 +20,7 @@ export const useBestSentencesHook = () => {
     if (character) {
       // Send to api
       console.log(`SEND: `, character);
+      saveBestSentences(character);
     }
   }, [character]);
 

@@ -71,7 +71,10 @@
       ],
       "url": "https://rickandmortyapi.com/api/character/1",
       "created": "2017-11-04T18:48:46.250Z",
-      "sentences": []
+      "sentences": [
+        "Wubba Lubba Dub Dub",
+        "¡Me he convertido en un pepinillo, Morty! ¡Soy Pickle Riiiick!"
+      ]
     },
     {
       "id": 2,
@@ -144,7 +147,10 @@
       ],
       "url": "https://rickandmortyapi.com/api/character/2",
       "created": "2017-11-04T18:50:21.651Z",
-      "sentences": []
+      "sentences": [
+        "Oh, geez ...",
+        "Todos vamos a morir. Ven a ver televisión."
+      ]
     },
     {
       "id": 3,
