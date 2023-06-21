@@ -3,7 +3,6 @@ import { useParams, useHistory } from 'react-router-dom';
 import * as api from './api';
 import { Character, createEmptyCharacter } from './character.vm';
 import { mapHotelFromApiToVm } from './character.mappers';
-import { Lookup } from 'common/models';
 import { CharacterComponent } from './character.component';
 
 export const CharacterContainer: React.FunctionComponent = (props) => {
@@ -47,5 +46,9 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     }
   }; */
 
-  return <CharacterComponent character={character} />;
+  return (
+    <>
+      <CharacterComponent character={character} />
+    </>
+  );
 };
